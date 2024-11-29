@@ -1,0 +1,151 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+
+  "name": "next-forge docs",
+
+  "logo": {
+    "dark": "/images/logo-dark.svg",
+    "light": "/images/logo-light.svg"
+  },
+
+  "background": { "style": "windows" },
+
+  "codeBlock": {
+    "mode": "auto"
+  },
+
+  "favicon": "/images/icon.png",
+
+  "layout": "topnav",
+
+  "colors": {
+    "primary": "#f35815",
+    "light": "#f35815",
+    "dark": "#f35815",
+    "anchors": {
+      "from": "#f35815",
+      "to": "#f35815"
+    }
+  },
+
+  "topbarCtaButton": {
+    "type": "github",
+    "url": "https://github.com/haydenbleasel/next-forge"
+  },
+
+  "search": {
+    "prompt": "Search or ask..."
+  },
+
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "overview",
+        "setup",
+        "faq",
+        {
+          "group": "Recommended Libraries",
+          "pages": [
+            "recommended-libraries/friendlier-words",
+            "recommended-libraries/motion",
+            "recommended-libraries/nuqs",
+            "recommended-libraries/react-wrap-balancer",
+            "recommended-libraries/zustand"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Structure",
+      "pages": ["structure/apps", "structure/packages"]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        "ai",
+        {
+          "group": "Analytics",
+          "pages": ["analytics/web", "analytics/product"]
+        },
+        {
+          "group": "Authentication",
+          "pages": ["authentication/overview", "authentication/authjs", "authentication/better-auth"]
+        },
+        {
+          "group": "Business Intelligence",
+          "pages": ["bi/metabase"]
+        },
+        "blog",
+        "bundle-analysis",
+        "collaboration",
+        "cron",
+        {
+          "group": "Database and ORM",
+          "pages": [
+            "database/overview",
+            "database/drizzle",
+            "database/planetscale",
+            "database/prisma-postgres",
+            "database/turso"
+          ]
+        },
+        {
+          "group": "Design System",
+          "pages": [
+            "design-system/colors",
+            "design-system/components",
+            "design-system/dark-mode",
+            "design-system/provider",
+            "design-system/typography"
+          ]
+        },
+        "documentation",
+        {
+          "group": "Email",
+          "pages": ["email/clerk", "email/resend"]
+        },
+        "env",
+        "flags",
+        "formatting",
+        {
+          "group": "Observability",
+          "pages": [
+            "observability/error-capture",
+            "observability/debugging",
+            "observability/logging",
+            "observability/uptime"
+          ]
+        },
+        "payments",
+        {
+          "group": "Security",
+          "pages": [
+            "security/application",
+            "security/dependencies",
+            "security/headers",
+            "security/ip-geolocation"
+          ]
+        },
+        "storage",
+        "storybook",
+        "webhooks",
+        {
+          "group": "SEO",
+          "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
+        },
+        "testing"
+      ]
+    },
+    {
+      "group": "Deployment",
+      "pages": ["deployment/vercel"]
+    }
+  ],
+
+  "footerSocials": {
+    "x": "https://x.com/haydenbleasel",
+    "github": "https://github.com/haydenbleasel/next-forge",
+    "linkedin": "https://www.linkedin.com/in/haydenbleasel"
+  }
+}

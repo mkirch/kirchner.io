@@ -1,0 +1,14 @@
+{
+  "name": "@repo/webhooks",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@repo/auth": "workspace:*",
+    "@repo/env": "workspace:*",
+    "svix": "^1.41.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@repo/typescript-config": "workspace:*"
+  }
+}
