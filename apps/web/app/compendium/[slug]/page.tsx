@@ -31,7 +31,6 @@ export const generateMetadata = async ({
     title: page.title,
     description: page.description,
     image: page.image ?? undefined,
-    icon: page.icon ?? undefined,
   });
 };
 
