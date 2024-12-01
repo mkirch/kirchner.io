@@ -36,7 +36,6 @@ const BlogIndex = () => {
                   'flex cursor-pointer flex-col gap-4 hover:opacity-75',
                   !index && 'md:col-span-2'
                 )}
-                w
                 key={post.title}
               >
                 {post.image ? (
