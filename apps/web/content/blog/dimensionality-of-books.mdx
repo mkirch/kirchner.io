@@ -1,10 +1,60 @@
-{/* ---
+---
 title: "AI Dataset Creation is Missing a Piece of the Puzzle: Books are not 2D Objects"
-description: "Books are not 2D objects, and yet, most AI datasets treat them as such. This post explores the limitations of current AI datasets and the potential benefits of incorporating 3D book data into AI training. It stems from a HN thread on Why Writing by Hand is Better for Memory and Learning, from Scientific American. The commments mention epub being a construct."
+description: "Books are not 2D objects, and yet, most AI datasets treat them as such. This post explores the limitations of current AI datasets and the potential benefits of incorporating 3D book data into AI training. It stems from a HN thread on Why Writing by Hand is Better for Memory and Learning, from Scientific American. The comments mention epub being a construct."
 date: "2024-02-23"
 authors: ["Michael Kirchner"]
 tags: ["technology", "ai", "books", "dataset creation"]
 image: /blog/longs-peak.jpg
---- */}
+---
 
-Keep this one in the drafts.
+The training datasets we use are without a doubt the source of the capabilities of our models. Lately, I’ve been contemplating an oversight: we treat books as  two-dimensional text files in our datasets, neglecting the information subtly encoded in their physical and spatial attributes. This simplification may be limiting our AI systems’ ability to fully understand and emulate human experiences related to reading and learning.
+
+### The Overlooked Dimension of Books
+
+A Hacker News thread caught my eye that was discussing an article from Scientific American, ["Why Writing by Hand is Better for Memory and Learning"](https://www.scientificamerican.com/article/why-writing-by-hand-is-better-for-memory-and-learning/). Commenters noted that formats like `ePub` are constructs that fail to capture the nature of physical books. This observation stuck with me and eventually I really noticed myself bothered by the thought of how we represent books in AI datasets.
+
+Books are more than just containers of text; they are physical objects that engage our senses. The tactile sensation of turning a page, the weight of the book in our hands, the spatial memory of where information is located—all these factors contribute to how we process and retain information. Studies have shown that physical interaction with books can enhance memory and comprehension, suggesting that the medium itself plays a role in learning.
+
+### Limitations of Current AI Datasets
+
+Most AI models today are trained on digitized text formats—plain text, PDFs, or ePub files. While these formats efficiently capture the textual content, they strip away the physical context that is integral to the human reading experience. By ignoring the three-dimensional nature of books, we may be constraining our AI systems’ ability to fully grasp and replicate human cognitive processes.
+
+For example, when humans read, we often remember information based on its physical location within a book. We might recall that a particular passage was on the right-hand page, halfway through the book. This spatial memory aids in information retrieval and comprehension. Current AI models lack this dimension of understanding because their training data doesn’t include it.
+
+### The Potential of Incorporating 3D Book Data
+
+By integrating the physical attributes of books into AI datasets, we could enhance the models’ understanding in several ways:
+	•	Improved Natural Language Understanding: AI could better simulate how humans recall and relate to information, leading to more intuitive interactions.
+	•	Advancements in Robotics: Robots equipped with this knowledge could handle books more effectively, opening up possibilities in automation for libraries, bookstores, and educational settings.
+	•	Enhanced Educational Tools: AI-driven applications could offer more immersive learning experiences by mimicking the benefits of physical books, such as spatial memory cues.
+
+Imagine an AI model that not only understands the text within a book but also appreciates its physical form. Such a model could potentially predict how the layout and physical cues of a book contribute to its readability and the reader’s retention of information.
+
+### Challenges to Consider
+
+Integrating three-dimensional data of books into AI datasets presents several challenges:
+	•	Data Collection: Capturing the physical attributes of books requires advanced scanning technologies and methodologies to record tactile and spatial information accurately.
+	•	Data Complexity: The addition of physical data significantly increases the complexity and size of datasets, necessitating more computational resources for training.
+	•	Standardization: Developing a standardized format for representing physical book data is essential to ensure consistency across datasets.
+	•	Legal and Ethical Concerns: Issues surrounding copyright and privacy must be carefully navigated, requiring collaboration with publishers and legal experts.
+
+Despite these challenges, the potential benefits for AI development and our understanding of human cognition make this a worthwhile endeavor.
+
+### The Digital // Physical Divide 
+
+The digital transformation has launched unprecedented access to information, but it has also led to the loss of certain tactile and spatial experiences associated with physical media. By acknowledging and integrating the physical dimensions of books into AI datasets, we can create models that better reflect some of the non-obvious aspects of human learning and memory.
+
+This could also pave the way for more holistic systems that bridge the gap between our digital and physical interactions. Such systems would not only process information but also understand the context in which that information exists, leading to more nuanced and effective applications.
+
+### A New Path Forward - Dimensionality as a First Class Text Feature
+
+As we continue to advance in AI, it’s imperative that we revisit the assumptions underlying our datasets. Books are not merely 2D objects; they are rich, multidimensional experiences that play a significant role in how we absorb and retain information. By expanding our datasets to include the physical aspects of books, we can enhance the capabilities of AI models to be more aligned with human experiences.
+
+Incorporating 3D book data could be a waste of time if ill-implemented, but the potential rewards in terms of improved AI understanding and interaction with the world make it a pursuit worth undertaking. It’s time we consider new perspectives on core topics, like text corpus sources and representation, to hopefully enable new capabilities.
+
+
+---
+
+About Michael Kirchner
+
+Michael Kirchner is an AI researcher specializing in human-computer interaction and cognitive science. His work focuses on integrating physical human experiences into technological advancements to create more intuitive and effective AI systems. When he’s not delving into research, Michael enjoys exploring nature and indulging in classic literature.
