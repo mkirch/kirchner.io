@@ -1,0 +1,138 @@
+---
+title: "AI Inference Guide: Boost Your Business with Machine Learning"
+description: "Discover how AI inference using trained models can transform your business. Learn about the critical phase of machine learning, environments for execution, and key considerations like performance, scalability, and latency. Optimize your AI applications on-premises, in the cloud, or at the edge."
+date: "2024-12-01"
+image: /blog/brumos.jpg
+authors: ["Michael Kirchner"]
+tags: ["inference", "machine learning", "ai", "edge", "mlops", "aiops"]
+---
+
+## What is AI "inference"?
+
+Inference in AI involves using a trained model to generate predictions or decisions based on new data. This is the critical phase of the machine learning process when applying AI to real-world scenarios, as it determines how effectively the model can interpret and respond to new inputs. Inference can be executed in various environments, such as on-premises, in the cloud, or at the edge, each offering different benefits and challenges. Important considerations during inference include model performance, scalability, and latency.
+
+## Importance of Understanding Inference Process for AI Models
+
+Understanding AI model inference is vital for businesses using AI, affecting decision-making, efficiency, and data protection compliance.
+
+## Overview of AI LLM Inference Options and Considerations
+
+AI inference, particularly in the context of large language models (LLMs), involves several critical options and considerations that organizations must evaluate:
+
+1. **Model Selection**  
+   Choosing the appropriate LLM based on the specific use case, performance requirements, and resource constraints is crucial. Options range from open-source models to proprietary solutions offered by various providers.
+
+2. **Deployment Environment**  
+   Deciding whether to deploy the model on-premises, in the cloud, or at the edge depends on factors such as data privacy, latency requirements, and infrastructure capabilities.
+
+3. **Scalability and Performance**  
+   Ensuring the inference system can handle varying loads efficiently is essential. This involves optimizing for speed and resource usage while maintaining high-quality outputs.
+
+4. **Cost Management**  
+   Balancing the cost of inference operations with the desired performance and accuracy is a key consideration. This includes evaluating pricing models of cloud services and the cost of maintaining infrastructure.
+
+5. **Data Privacy and Security**  
+   Implementing robust security measures to protect sensitive data during inference is vital. This includes encryption, access controls, and compliance with data protection regulations.
+
+6. **Ethical and Responsible AI**  
+   Ensuring that the AI system operates ethically involves addressing biases, ensuring transparency in decision-making processes, and maintaining accountability for AI-driven outcomes.
+
+7. **Monitoring and Maintenance**  
+   Continuous monitoring of the inference system's performance and regular updates to the model and infrastructure are necessary to adapt to changing requirements and improve over time.
+
+## Client Requests from API Inference Providers
+
+
+### 1. Examples of OpenAI client requests
+
+```python
+# Example of OpenAI client request
+import openai
+
+client = openai.OpenAI()
+chat_completion = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": "What is the capital of France?"}]
+)
+```
+
+### 2. Examples of on-hardware inference: running python code on a GPU for gpt-neox
+
+```python
+from transformers import GPTNeoXForCausalLM, GPT2Tokenizer
+
+# Load the model
+model = GPTNeoXForCausalLM.from_pretrained("EleutherAI/gpt-neox-20b")
+
+# Run inference
+inputs = tokenizer("Hello, world!", return_tensors="pt")
+outputs = model.generate(**inputs, max_new_tokens=10)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+```
+
+### 3. Examples of on-hardware inference: running python code on a CPU for llama-3
+
+```python
+from llama_cpp import Llama
+
+llama = Llama(model_path="/path/to/llama-3.1-8b.Q4_0.gguf", use_gpu=False)
+
+print(llama("Hello, world!"))
+```
+
+
+### 4. Examples of on-hardware inference: running python code on a GPU for llama-3
+
+```python
+from llama_cpp import Llama
+
+llama = Llama(model_path="/path/to/llama-3.1-8b.Q4_0.gguf", use_gpu=True)
+
+print(llama("Hello, world!"))
+```
+
+### 5. Example of multimodal inference with text and image inputs to OpenAI
+
+```python
+import openai
+import requests
+from PIL import Image
+from io import BytesIO
+
+client = openai.OpenAI()
+
+image_url = "https://example.com/image.jpg"
+response = requests.get(image_url)
+img = Image.open(BytesIO(response.content))
+
+chat_completion = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant that can analyze images."},
+        {"role": "user", "content": "Describe the contents of the image and tell me what is in the image."}
+    ],
+    image=img
+)
+```
+
+## How to Accelerate Inference
+
+1. Use parallel processing to speed up inference with API providers
+2. Use GPU, TPU, or FPGA accelerators with on-premises or cloud providers which you control the hardware with
+3. Monitor the performance of your inference system and model to identify and address bottlenecks
+4. Keep an eye on the latest developments in inference techniques and make sure you take advantage of what others are finding out
+5. ... figure out how to do this on a quantum computer 🫡
+
+> The short-term results are innovative accelerators like graphics-processing unit (GPU) farms, tensor-processing unit (TPU) chips, and field-programmable gate arrays (FPGAs) in the cloud. But the dream is a quantum computer. Today we have an urgent need to solve problems that would tie up classical computers for centuries, but that could be solved by a quantum computer in a few minutes or hours.
+
+– _Satya Nadella_
+
+---
+
+**Further Reading**
+
+- [Wikipedia: Inference](https://en.wikipedia.org/wiki/Inference)
+- [Wikipedia: Statistical Inference](https://en.wikipedia.org/wiki/Statistical_inference)
+- [Wikipedia: Bayesian Inference](https://en.wikipedia.org/wiki/Bayesian_inference)
+
+_This article is for informational purposes only and does not constitute legal advice._

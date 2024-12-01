@@ -38,7 +38,13 @@ export const Cases = () => {
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {Array.from({ length: 15 }).map((_, index) => (
-                <CarouselItem className="basis-1/4 lg:basis-1/6" key={index}>
+                <CarouselItem
+                  className="basis-1/4 lg:basis-1/6"
+                  key={`carousel-item-${
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    index
+                  }`}
+                >
                   <div className="flex aspect-square items-center justify-center rounded-md bg-muted p-6">
                     <span className="text-sm">Logo {index + 1}</span>
                   </div>

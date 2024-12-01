@@ -83,7 +83,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           <Balancer>{page.description}</Balancer>
         </p>
-        {page.image ? (
+        {page.image && page.imageBlur ? (
           <Image
             src={page.image}
             width={1920}
@@ -91,7 +91,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
             alt=""
             className="my-16 h-full w-full rounded-xl"
             priority
-            blurDataURL={page.imageBlur}
+            blurDataURL={page.imageBlur ?? undefined}
             placeholder="blur"
           />
         ) : undefined}

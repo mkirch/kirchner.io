@@ -1,0 +1,13 @@
+---
+title: Transformers
+description: Transformers are a type of neural network architecture that have been shown to be effective for a wide range of natural language processing tasks.
+icon: 'shapes'
+---
+
+# Transformer
+
+## What's the difference between self-attention and cross-attention?
+
+Self-attention has the keys, queries, and values all coming from a same source, x. X produces the keys, queries, and values. The self-attention mechanism then computes the attention scores between the queries and the keys, and uses these scores to weight the values. This is useful for capturing relationships between different words in a sentence.
+
+Attention is much more general. For example in encoder decoder transformers, the queries come from x, but the keys and values come from an entirely separate source. This is cross-attention. It's useful for tasks like translation, where the input and output languages are different.

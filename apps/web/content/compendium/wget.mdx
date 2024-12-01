@@ -1,0 +1,29 @@
+---
+title: wget for data hoarding
+description: How to use wget to download a website or large amounts of data of specific types.
+icon: dolly
+---
+
+## Using wget for Large Siterips
+
+`wget` is a powerful command-line tool that allows you to download files from the web. It can be particularly useful for performing large siterips, where you want to download an entire website or a specific portion of it. In this guide, we will explore some of the most commonly used flags and identifiers that can help you with siterips using `wget`.
+
+## Basic Usage
+
+To start a siterip, you can use the following command:
+
+```bash
+wget -r -np -k -p -e robots=off -U 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36' https://example.com
+```
+
+This command will recursively download the entire website, including all subdomains, and convert all links to relative links. It will also ignore robots.txt and use a user agent string that is commonly used by web browsers. This is useful for websites that block wget by default.
+
+## Downloading Specific File Types
+
+If you only want to download specific file types, you can use the following command:
+
+```bash
+wget --recursive -np -k -p -e robots=off -U 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36' -A jpg,jpeg,gif,png,mp4,webm,webp,mp3,ogg,flac,zip,rar,tar.gz,tar.xz,7z,exe,iso,apk,deb,msi,torrent https://example.com
+```
+
+This command will only download files with the specified extensions. You can add or remove extensions as needed.

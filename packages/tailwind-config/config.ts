@@ -82,8 +82,10 @@ export const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
-        mono: ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
+        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+        mono: ['var(--font-inconsolata)', ...defaultTheme.fontFamily.mono],
+        serif: ['var(--font-newsreader)', ...defaultTheme.fontFamily.serif],
+        fraktur: ['var(--font-unifraktur)', ...defaultTheme.fontFamily.serif],
       },
       keyframes: {
         'accordion-down': {

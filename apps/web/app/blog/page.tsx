@@ -36,16 +36,19 @@ const BlogIndex = () => {
                   'flex cursor-pointer flex-col gap-4 hover:opacity-75',
                   !index && 'md:col-span-2'
                 )}
+                w
                 key={post.title}
               >
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={1336}
-                  height={751}
-                  blurDataURL={post.imageBlur}
-                  placeholder="blur"
-                />
+                {post.image ? (
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={1336}
+                    height={751}
+                    blurDataURL={post.imageBlur ?? undefined}
+                    placeholder="blur"
+                  />
+                ) : undefined}
                 <div className="flex flex-row items-center gap-4">
                   <p className="text-muted-foreground text-sm">
                     {new Date(post.date).toLocaleDateString('en-US', {

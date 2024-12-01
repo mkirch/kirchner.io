@@ -1,0 +1,167 @@
+---
+title: GPU Programming
+description: Programming for GPUs with AI in mind.
+icon: 'tachograph-digital'
+---
+
+# GPU Programming
+
+## Programming for GPUs with AI in Mind
+
+Some critical concepts and tools for programming GPUs in the context of AI and machine learning.
+
+## NVIDIA CUDA
+
+NVIDIA CUDA is a parallel computing platform and programming model that enables dramatic increases in computing performance by harnessing the power of NVIDIA GPUs. It is widely used in the AI and machine learning community for accelerating deep learning workloads.
+
+- [NVIDIA CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)
+
+The NVIDIA GPU architecture is built around a scalable array of multithreaded Streaming Multiprocessors (SMs). When a CUDA program on the host CPU invokes a kernel grid, the blocks of the grid are enumerated and distributed to multiprocessors with available execution capacity. The threads of a thread block execute concurrently on one multiprocessor, and multiple thread blocks can execute concurrently on one multiprocessor. As thread blocks terminate, new blocks are launched on the vacated multiprocessors.
+
+### CUDA Toolkit
+
+The CUDA Toolkit is a comprehensive software development environment for building GPU-accelerated applications. It includes a compiler for NVIDIA GPUs, math libraries, and tools for debugging and optimizing the performance of your applications.
+
+### cuDNN
+
+The NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. It provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers.
+
+### cuBLAS
+
+The NVIDIA CUDA Basic Linear Algebra Subprograms library (cuBLAS) is a GPU-accelerated library of basic linear algebra subroutines. It provides routines for operations such as matrix multiplication, matrix addition, and matrix factorization.
+
+### cuSPARSE
+
+The NVIDIA CUDA Sparse Matrix library (cuSPARSE) is a GPU-accelerated library of basic linear algebra subroutines for sparse matrices. It provides routines for operations such as sparse matrix-vector multiplication, sparse matrix factorization, and sparse matrix conversion.
+
+## AMD ROCm
+
+The Radeon Open Compute platform (ROCm) is an open-source software platform for GPU computing on AMD GPUs. It is designed to provide a rich foundation for advanced computing by enabling high performance, heterogenous computing, and machine learning workloads.
+
+### ROCm Libraries
+
+The ROCm platform includes a set of libraries for high-performance computing and machine learning, including the MIOpen library for deep learning, the rocBLAS library for linear algebra, and the rocSPARSE library for sparse linear algebra.
+
+### OpenCL
+
+The Open Computing Language (OpenCL) is a framework for writing programs that execute across heterogeneous platforms consisting of CPUs, GPUs, and other processors. It is maintained by the Khronos Group, and is widely used for high-performance computing and machine learning workloads.
+
+## TensorFlow and PyTorch
+
+Both TensorFlow and PyTorch provide support for GPU acceleration, allowing you to train and run deep learning models on NVIDIA and AMD GPUs. They provide high-level APIs for building and training models, and seamlessly integrate with the CUDA and ROCm platforms for GPU acceleration.
+
+## Why write a custom kernel?
+
+Sometimes, the operations you need to perform on a GPU are not available in high-level libraries like TensorFlow or PyTorch. In such cases, you may need to write a custom kernel using CUDA or OpenCL to achieve the desired functionality.
+
+## When do i use CUDA or OpenCL?
+
+CUDA is specific to NVIDIA GPUs, while OpenCL is a cross-platform framework that can be used with GPUs from multiple vendors. If you need to target a wide range of hardware, OpenCL may be the better choice. If you are specifically targeting NVIDIA GPUs, CUDA may provide better performance and more advanced features.
+
+## Ok I want to write something in CUDA. Where do I start?
+
+The best place to start is the official [NVIDIA CUDA Toolkit documentation](https://docs.nvidia.com/cuda/index.html). This includes a comprehensive guide to getting started with CUDA, as well as detailed documentation for all the libraries and tools included in the CUDA Toolkit.
+
+## What's PTX? What's SASS?
+
+PTX (Parallel Thread Execution) is an intermediate language used by the NVIDIA CUDA compiler. It is a platform-independent assembly-like language that is used to represent GPU programs before they are compiled to machine code.
+
+SASS (Streaming Asynchronous Shader) is the actual machine code that is executed by NVIDIA GPUs. It is specific to the architecture of the GPU, and is generated from PTX code by the CUDA compiler.
+
+## What's the difference between a kernel and a stream?
+
+A kernel is a function that is executed on the GPU. It is the unit of work that is scheduled and executed by the GPU.
+
+A stream is a sequence of operations that are executed on the GPU. Streams are used to manage the execution of kernels and memory operations, and to overlap computation with data transfers.
+
+## What's the difference between shared memory and global memory?
+
+Shared memory is a small, fast memory space that is shared by all threads in a thread block. It is used for communication and data sharing between threads, and is typically used to optimize memory access patterns within a thread block.
+
+Global memory is the main memory space of the GPU, and is accessible by all threads in all thread blocks. It is used to store the input data, output data, and intermediate results of GPU programs.
+
+## What's the difference between warp-synchronous programming and thread-synchronous programming?
+
+Warp-synchronous programming is a programming model that takes advantage of the SIMD (Single Instruction, Multiple Data) execution model of NVIDIA GPUs. It allows threads within a warp to synchronize and communicate with each other, and to execute the same instruction on different data elements in parallel.
+
+Thread-synchronous programming is a more general programming model that allows threads to synchronize and communicate with each other, but does not require them to execute the same instruction in parallel. It is used for more general-purpose GPU programming, and is not as tightly coupled to the hardware architecture of the GPU.
+
+## What's the difference between a grid and a block?
+
+A grid is a collection of thread blocks that are executed together on the GPU. It represents the entire set of work that needs to be done by the GPU, and is used to organize the execution of large-scale parallel programs.
+
+A block is a collection of threads that are executed together on the GPU. It represents a smaller unit of work that can be executed in parallel, and is used to organize the execution of individual tasks within a grid.
+
+## What's the difference between a warp and a thread?
+
+A warp is a collection of threads that are executed together on the GPU. It represents the smallest unit of work that can be executed in parallel, and is used to organize the execution of SIMD programs.
+
+A thread is the basic unit of execution on the GPU. It represents a single instance of a program that is executed in parallel, and is used to organize the execution of individual tasks within a warp.
+
+## So what do i need to know about PTX?
+
+PTX is an intermediate language used by the NVIDIA CUDA compiler. It is a platform-independent assembly-like language that is used to represent GPU programs before they are compiled to machine code. Understanding PTX can be useful for optimizing the performance of CUDA programs, and for writing custom kernels that take advantage of the low-level features of NVIDIA GPUs.
+
+## what do people use ptx for? do they use it directly?
+
+PTX is typically used indirectly, as an intermediate representation of CUDA programs that is generated by the CUDA compiler. However, some advanced users may write PTX code directly in order to optimize the performance of their CUDA programs, or to take advantage of low-level features of NVIDIA GPUs that are not exposed by the high-level CUDA programming model.
+
+## What does it look like?
+
+PTX code looks like a low-level assembly language, with instructions for loading and storing data, performing arithmetic and logic operations, and controlling the flow of execution. It is not as human-readable as high-level programming languages, but it provides fine-grained control over the behavior of the GPU, and can be used to achieve high performance in specialized applications.
+
+Here's an example:
+
+```ptx
+.visible .entry _Z6kernelPfS_
+{
+    .reg .f32   %f<4>;
+    .reg .b32   %r<5>;
+    .reg .b64   %rd<7>;
+
+    ld.param.u64    %rd1, [__cudaparm__Z6kernelPfS__param_0];
+    cvta.to.global.u64  %rd2, %rd1;
+    mov.u32     %r1, %ctaid.x;
+    mov.u32     %r2, %ntid.x;
+
+    mul.wide.u32    %rd3, %r1, %r2;
+    add.u32     %r3, %tid.x, %rd3;
+    cvt.u64.u32     %rd4, %r3;
+    mul.wide.u32    %rd5, %r3, 4;
+    add.u64     %rd6, %rd2, %rd5;
+    ld.global.f32   %f1, [%rd6];
+    add.f32     %f2, %f1, 2f00000000;
+    st.global.f32   [%rd6], %f2;
+    exit;
+}
+```
+
+This example shows a simple CUDA kernel that adds a constant value to each element of an array. The PTX code includes instructions for loading the input data, performing the computation, and storing the result back to memory.
+
+## How do I learn PTX?
+
+The best way to learn PTX is to start with the official [NVIDIA PTX ISA documentation](https://docs.nvidia.com/cuda/parallel-thread-execution/index.html). This includes a comprehensive guide to the PTX instruction set architecture, as well as detailed documentation for all the instructions and features of PTX.
+
+## What's the difference between PTX and SASS?
+
+PTX (Parallel Thread Execution) is an intermediate language used by the NVIDIA CUDA compiler. It is a platform-independent assembly-like language that is used to represent GPU programs before they are compiled to machine code.
+
+SASS (Streaming Asynchronous Shader) is the actual machine code that is executed by NVIDIA GPUs. It is specific to the architecture of the GPU, and is generated from PTX code by the CUDA compiler.
+
+## Explain how I can write a custom kernel in CUDA, the various methods
+
+To write a custom kernel in CUDA, you can use one of the following methods:
+
+1. Write a kernel function in CUDA C/C++ and compile it using the NVIDIA CUDA compiler (nvcc). This is the most common method for writing custom kernels in CUDA, and allows you to take advantage of the high-level features of the CUDA programming model. When you compile it this way, it generates PTX code and SASS code for you.
+2. Write a kernel function in PTX assembly and embed it directly in your CUDA C/C++ code. This method allows you to take advantage of the low-level features of NVIDIA GPUs, and can be useful for optimizing the performance of CUDA programs.
+3. Using Rust, you can use the `rust-cuda` crate to write custom kernels in CUDA. This allows you to write CUDA kernels in Rust, and take advantage of Rust's safety and expressiveness while still targeting NVIDIA GPUs.
+4. Using Python, you can use the `pycuda` library to write custom kernels in CUDA. This allows you to write CUDA kernels in Python, and take advantage of Python's high-level features while still targeting NVIDIA GPUs.
+5. Using Julia, you can use the `CUDAnative.jl` package to write custom kernels in CUDA. This allows you to write CUDA kernels in Julia, and take advantage of Julia's high-level features while still targeting NVIDIA GPUs.
+6. Using Go, you can use the `gocudnn` package to write custom kernels in CUDA. This allows you to write CUDA kernels in Go, and take advantage of Go's simplicity and performance while still targeting NVIDIA GPUs.
+7. Using Swift, you can use the `SwiftCUDA` package to write custom kernels in CUDA. This allows you to write CUDA kernels in Swift, and take advantage of Swift's safety and expressiveness while still targeting NVIDIA GPUs.
+
+## What's the difference between CUDA and OpenCL?
+
+CUDA is a parallel computing platform and programming model developed by NVIDIA for their GPUs. It is specific to NVIDIA GPUs, and provides a high-level programming model that allows developers to write parallel programs in C/C++ and compile them using the NVIDIA CUDA compiler.
+
+OpenCL is a framework for writing programs that execute across heterogeneous platforms consisting of CPUs, GPUs, and other processors. It is maintained by the Khronos Group, and is designed to be cross-platform and vendor-neutral. OpenCL provides a lower-level programming model than CUDA, and is typically used for more general-purpose parallel programming.

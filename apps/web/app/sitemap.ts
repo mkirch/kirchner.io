@@ -17,6 +17,13 @@ const blogs = fs
   .filter((file) => !file.name.startsWith('('))
   .map((file) => file.name.replace('.mdx', ''));
 
+const articles = fs
+  .readdirSync('content/compendium', { withFileTypes: true })
+  .filter((file) => !file.isDirectory())
+  .filter((file) => !file.name.startsWith('_'))
+  .filter((file) => !file.name.startsWith('('))
+  .map((file) => file.name.replace('.mdx', ''));
+
 const legals = fs
   .readdirSync('content/legal', { withFileTypes: true })
   .filter((file) => !file.isDirectory())
@@ -37,6 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogs.map((blog) => ({
       url: new URL(
         `blog/${blog}`,
+        env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+      ).href,
+      lastModified: new Date(),
+    })),
+    ...articles.map((article) => ({
+      url: new URL(
+        `compendium/${article}`,
         env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
       ).href,
       lastModified: new Date(),

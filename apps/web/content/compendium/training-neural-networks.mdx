@@ -1,0 +1,38 @@
+---
+title: Training Models - Sage Wisdom
+description: Sage wisdom and tips for training neural networks, general advice and specific tips.
+icon: 'exchange-alt'
+---
+
+## Training Neural Networks
+
+The following is solid advice from Andrej Karpathy on training neural networks and some specific tips to deal with it. Read his post here: [A Recipe for Training Neural Networks (by @karpathy)](https://karpathy.github.io/2019/04/25/recipe/ )
+
+1. Understand the data. Become one with it. Be the ball.
+2. Set up end to end pipeline, with some tips
+    - fix and random seed
+    - simplify
+    - add sig digits to eval
+    - verify loss at init
+    - init "well"
+    - human baseline
+    - input-indepent baseline - does random or no data perform worse as expected
+    - overfit one batch
+    - verify decreasing training loss - push buttons you would expect to break things and see if they do. tap on the gauges when they look right, to see if it's real.
+    - use backprop to chart dependencies - find bugs in arch by doing basic tests
+    - generalize a special case - don't bite off more than you can chew. start special case, then generalize, reasonably.
+3. Overfit
+4. Regularize
+    - moar data
+    - creative data
+    - dropout
+    - weight decay
+    - early stopping
+    - decrease batch size
+    - moar weights
+5. Tune your hyperparameters
+6. Squeeze out the juice w/ ensembles and lengthened training
+
+Go read that post. And this one, and the rest of his site, probably.
+
+[Yes, You Should Understand Backprop (by @karpathy)](https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b)

@@ -1,0 +1,134 @@
+---
+title: Making GitHub Repos Nice
+description: Shields.io
+icon: 'github'
+---
+
+
+## Shields from GitHub
+
+last commit badge is underrated, it's a great way to see if a project is still maintained or not. others include release, stars, forks, watchers, license, etc.
+
+for repo [`utkarshkukreti/markup.rs`](https://github.com/utkarshkukreti/markup.rs), the badges are:
+
+![](https://img.shields.io/github/last-commit/utkarshkukreti/markup.rs.svg)
+![](https://img.shields.io/github/release/utkarshkukreti/markup.rs.svg)
+![](https://img.shields.io/github/stars/utkarshkukreti/markup.rs.svg)
+![](https://img.shields.io/github/forks/utkarshkukreti/markup.rs.svg)
+![](https://img.shields.io/github/watchers/utkarshkukreti/markup.rs.svg)
+![](https://img.shields.io/github/license/utkarshkukreti/markup.rs.svg)
+
+
+<div align="center">
+
+[![Build](https://img.shields.io/github/actions/workflow/status/utkarshkukreti/markup.rs/build.yml)](https://github.com/utkarshkukreti/markup.rs/actions/workflows/build.yml)
+[![Version](https://img.shields.io/crates/v/markup?style=for-the-badge)](https://crates.io/crates/markup)
+[![Documentation](https://img.shields.io/docsrs/markup?style=for-the-badge)](https://docs.rs/markup)
+[![Downloads](https://img.shields.io/crates/d/markup?style=for-the-badge)](https://crates.io/crates/markup)
+[![License](https://img.shields.io/crates/l/markup?style=for-the-badge)](https://crates.io/crates/markup)
+
+</div>
+
+## Static Badges
+
+It is possible to use shields.io to make a wide variety of badges displaying static text and/or logos. For example:
+
+- ![any text you like](https://img.shields.io/badge/any%20text-you%20like-blue)
+- ![just the message](https://img.shields.io/badge/just%20the%20message-8A2BE2)
+- !['for the badge' style](https://img.shields.io/badge/%27for%20the%20badge%27%20style-20B2AA?style=for-the-badge)
+- ![with a logo](https://img.shields.io/badge/with%20a%20logo-grey?style=for-the-badge&logo=javascript)
+
+For more info, see:
+
+## Logos
+
+### SimpleIcons
+
+We support a wide range of logos via [SimpleIcons](https://simpleicons.org/). All simple-icons are referenced using icon slugs. e.g:
+
+![](https://img.shields.io/npm/v/npm.svg?logo=nodedotjs) 
+
+You can click the icon title on <a href="https://simpleicons.org/" rel="noopener noreferrer" target="_blank">simple-icons</a> to copy the slug or they can be found in the <a href="https://github.com/simple-icons/simple-icons/blob/master/slugs.md">slugs.md file</a> in the simple-icons repository. NB - the Simple Icons site and slugs.md page may at times contain new icons that haven't yet been pulled into Shields.io yet. More information on how and when we incorporate icon updates can be found [here](https://github.com/badges/shields/discussions/5369).
+
+### Shields logos
+
+We also maintain a small number of custom logos for a handful of services:  They can also be referenced by name and take preference to SimpleIcons e.g:
+
+![](https://img.shields.io/npm/v/npm.svg?logo=npm)
+
+### Custom Logos
+
+Any custom logo can be passed in a URL parameter by base64 encoding it. e.g:
+
+![](https://img.shields.io/badge/play-station-blue.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIj48cGF0aCBkPSJNMTI5IDExMWMtNTUgNC05MyA2Ni05MyA3OEwwIDM5OGMtMiA3MCAzNiA5MiA2OSA5MWgxYzc5IDAgODctNTcgMTMwLTEyOGgyMDFjNDMgNzEgNTAgMTI4IDEyOSAxMjhoMWMzMyAxIDcxLTIxIDY5LTkxbC0zNi0yMDljMC0xMi00MC03OC05OC03OGgtMTBjLTYzIDAtOTIgMzUtOTIgNDJIMjM2YzAtNy0yOS00Mi05Mi00MmgtMTV6IiBmaWxsPSIjZmZmIi8+PC9zdmc+) 
+
+### logoColor parameter
+
+The `logoColor` param can be used to set the color of the logo. Hex, rgb, rgba, hsl, hsla and css named colors can all be used. For SimpleIcons named logos (which are monochrome), the color will be applied to the SimpleIcons logo.
+
+- ![](https://img.shields.io/badge/logo-javascript-blue?logo=javascript)
+- ![](https://img.shields.io/badge/logo-javascript-blue?logo=javascript&logoColor=f5f5f5) 
+
+In the case where Shields hosts a custom multi-colored logo, if the `logoColor` param is passed, the corresponding SimpleIcons logo will be substituted and colored.
+
+- ![](https://img.shields.io/badge/logo-gitlab-blue?logo=gitlab) 
+- ![](https://img.shields.io/badge/logo-gitlab-blue?logo=gitlab&logoColor=white) 
+
+## Spec
+
+### Static Badge
+
+The static badge accepts a single required path parameter which encodes either:
+
+- Label, message and color separated by a dash -. For example:
+  - ![any text: you like](https://img.shields.io/badge/any_text-you_like-blue) 
+- Message and color only, separated by a dash -. For example:
+  - ![just the message](https://img.shields.io/badge/just%20the%20message-8A2BE2) 
+
+| URL input              | Badge output |
+|------------------------|--------------|
+| Underscore `_` or `%20`   | Space  ``    |
+| Double underscore `__`  | Underscore `_` |
+| Double dash `--`        | Dash `-`       |
+
+Hex, rgb, rgba, hsl, hsla and css named colors may be used.
+
+#### Path Parameters
+
+`badgeContent` string — REQUIRED
+Label, (optional) message, and color. Separated by dashes
+
+Example: build-passing-brightgreen
+
+#### Query Parameters
+
+- `style` string
+  - One of: flat (default), flat-square, plastic, for-the-badge, social
+  - Example: flat
+
+- `logo` string
+  - One of the named logos (bitcoin, dependabot, gitlab, npm, paypal, serverfault, stackexchange, superuser, telegram, travis) or simple-icons. All simple-icons are referenced using icon slugs. You can click the icon title on [simple-icons](https://simpleicons.org/) to copy the slug or they can be found in the [slugs.md file](https://github.com/simple-icons/simple-icons/blob/master/slugs.md) in the simple-icons repository. [Further info](https://shields.io/docs/logos).
+  - Example: appveyor
+
+- `logoColor` string
+  - The color of the logo (hex, rgb, rgba, hsl, hsla and css named colors supported). Supported for named logos and Shields logos but not for custom logos. For multicolor Shields logos, the corresponding named logo will be used and colored.
+  - Example: violet
+
+- `label` string
+- Override the default left-hand-side text (URL-Encoding needed for spaces or special characters!)
+- Example: healthiness
+
+- `labelColor` string
+  - Background color of the left part (hex, rgb, rgba, hsl, hsla and css named colors supported).
+  - Example: abcdef
+
+- `color` string
+  - Background color of the right part (hex, rgb, rgba, hsl, hsla and css named colors supported).
+  - Example: fedcba
+
+- `cacheSeconds` string
+  - HTTP cache lifetime (rules are applied to infer a default value on a per-badge basis, any values specified below the default will be ignored).
+  - Example: 3600
+
+- `link` string[]
+  - Specify what clicking on the left/right of a badge should do. Note that this only works when integrating your badge in an `<object>` HTML tag, but not an `<img>` tag or a markup language

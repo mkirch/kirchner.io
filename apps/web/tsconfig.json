@@ -5,7 +5,9 @@
     "paths": {
       "@/*": ["./*"],
       "@repo/*": ["../../packages/*"],
-      "content-collections": ["./.content-collections/generated"]
+      "content-collections": ["./.content-collections/generated"],
+      "@web/*": ["../../apps/web/*"],
+      "@images/*": ["../../apps/web/public/images/*"]
     }
   },
   "include": [

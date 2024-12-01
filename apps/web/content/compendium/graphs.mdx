@@ -1,0 +1,140 @@
+---
+title: 'Graphs - Knowledge Graphs, Networks, and Databases'
+description: 'Graph networks are a set of nodes connected by edges. The edges can be directed or undirected. The nodes can be anything, such as people, web pages, computers, or airports. The edges can represent anything, such as friendship between people, hyperlinks between web pages, or flights between airports.'
+icon: 'network-wired'
+---
+
+
+## Graphs
+
+There is a ton to cover.
+
+Some topics I'll cover:
+
+- Graph theory from a mathematical perspective
+- Structuring data as a graph
+- Algorithms for working with graphs (e.g. traversals, shortest paths, etc.)
+- Graph neural networks, transformers, and other ML models for graphs. This c∑ould be using a graph part of the architecture or as an interaction with a graph.
+- Graph db's and other tools for working with graphs
+- Graph visualization (lots of fun pretty pictures and animations)
+- Using AI to augment graph data (e.g. link prediction, node classification, etc.)
+
+## Public Knowledge Graphs
+
+- [wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) - a free and open knowledge base that can be read and edited by both humans and machines.
+- [dbpedia](https://wiki.dbpedia.org/) - a crowd-sourced community effort to extract structured content from the information created in various Wikimedia projects.
+- [Claims Knowledge Graph](https://data.gesis.org/claimskg/) as a knowledge graph of claims with [sparql query editor for fact-checking](https://data.gesis.org/claimskg/sparql).
+- Stanford Network Analysis Project (SNAP) [datasets](https://snap.stanford.edu/data/) - Large network datasets from various domains.
+
+See also [Semantic Web](semantic-web).
+
+
+
+## Embeddings for Graphs
+
+- [PyKeen](https://github.com/pykeen/pykeen) PyKEEN (Python KnowlEdge EmbeddiNgs) is a Python package designed to train and evaluate knowledge graph embedding models (incorporating multi-modal information).
+
+## Rust Graph Resources crab
+
+- [Egui Graphs](https://github.com/blitzarx1/egui_graphs)
+  - Interactive graph visualization widget for Rust powered by [egui](https://github.com/emilk/egui) and [petgraph](https://github.com/petgraph/petgraph)
+- [petgraph](https://github.com/petgraph/petgraph)
+  - Graph data structure library for Rust
+- [egui](https://github.com/emilk/egui)
+  - Immediate mode GUI in Rust that runs on both web and native
+- [rustworkx](https://github.com/Qiskit/rustworkx) A high performance Python graph library implemented in Rust
+- [egg](https://github.com/egraphs-good/egg)
+  - egg is a flexible, high-performance e-graph library
+  - [egraphs-good](https://egraphs-good.github.io/) site has a lot of resources and examples of egraphs.
+  - Also check out the [egglog](https://github.com/egraphs-good/egglog) system that provides an alternative approach to equality saturation based on Datalog.
+  - It features a language-based design, incremental execution, and composable analyses.
+  - See also the [paper](//mwillsey.com/papers/egglog) and the [egglog web demo](https://egraphs-good.github.io/egglog)
+  - [enumo / ruler](https://github.com/uwplse/ruler) is is a domain-specific language for programmable theory exploration. It uses equality saturation to infer small, expressive rulesets for a domain.
+
+- [Sonic](https://github.com/valeriansaliou/sonic)
+  - Fast, lightweight and schema-less search backend. It ingests search texts and identifier tuples that can then be queried against in a microsecond's time.
+  - Sonic can be used as a simple alternative to super-heavy and full-featured search backends such as Elasticsearch in some use-cases. It is capable of normalizing natural language search queries, auto-completing a search query and providing the most relevant results for a query. Sonic is an identifier index, rather than a document index; when queried, it returns IDs that can then be used to refer to the matched documents in an external database.
+  - A strong attention to performance and code cleanliness has been given when designing Sonic. It aims at being crash-free, super-fast and puts minimum strain on server resources (our measurements have shown that Sonic - when under load - responds to search queries in the μs range, eats ~30MB RAM and has a low CPU footprint; see [benchmarks](https://github.com/valeriansaliou/sonic#how-fast--lightweight-is-it)).
+  - Sonic is integrated in all Crisp search products on the [Crisp](https://crisp.chat/) platform. It is used to index half a billion objects on a $5/mth 1-vCPU SSD cloud server (as of 2019). Crisp users use it to search in their messages, conversations, contacts, helpdesk articles and more. Test it [here](https://help.crisp.chat/)
+- [Oxigraph](https://github.com/oxigraph/oxigraph) - Rust based [SPARQL]((https://www.w3.org/TR/sparql11-overview/) ) compliant graph database, powered by [RocksDB](https://rocksdb.org/).
+
+## Databases for Graphs
+
+### Cypher based Property Graph Databases
+
+- [Neo4j](https://neo4j.com/) - a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing. Neo4j is the most popular graph database according to DB-Engines ranking, and the 22nd most popular database overall.
+- [Memgraph](https://memgraph.com/) [memgraph/memgraph](https://github.com/memgraph/memgraph) and [membgraph/mage](https://github.com/memgraph/mage) - open-source graph database management system, built for real-time streaming data, compatible with Neo4j.
+- [KuzuDB](https://github.com/kuzudb/kuzu) - Embeddable property graph database management system built for query speed and scalability. Implements Cypher.  C++ core with Python, Rust, NodeJS, Java, and CLI clients.
+
+### RDF, SPARQL based Graph Databases
+
+- [Oxigraph](https://github.com/oxigraph/oxigraph) - Rust based [SPARQL]((https://www.w3.org/TR/sparql11-overview/) ) compliant graph database, powered by [RocksDB](https://rocksdb.org/).
+
+### Graph Visualization Libraries
+
+#### Typescript
+
+- [d3-graphviz]
+- [dagre-d3]*
+- [cytoscape.js]
+- [vis.js]
+- [Orb by Memgraph](https://github.com/memgraph/orb)
+- [antvis/g6](https://github.com/antvis/G6)
+- [antvis/graphin](https://github.com/antvis/Graphin)
+- [reagraph]
+
+#### Python
+
+#### Rust
+
+#### SwiftUI
+
+#### bonus
+
+- [JSON Crack](https://github.com/AykutSarac/jsoncrack.com) - a tool to visualize JSON data as a graph.
+![alt text](https://github.com/AykutSarac/jsoncrack.com/blob/main/public/assets/jsoncrack-screenshot.jpeg)
+
+### AI / Graph Crossovers of various sorts
+
+- [LangGraph by Langchain](https://github.com/langchain-ai/langgraph)
+  
+    LangGraph is a library for building stateful, multi-actor applications with LLMs, built on top of (and intended to be used with) LangChain. It extends the LangChain Expression Language with the ability to coordinate multiple chains (or actors) across multiple steps of computation in a cyclic manner. It is inspired by Pregel and Apache Beam. The current interface exposed is one inspired by NetworkX.
+
+    The main use is for adding cycles to your LLM application. Crucially, this is NOT a DAG framework. If you want to build a DAG, you should use just use LangChain Expression Language.
+
+    Cycles are important for agent-like behaviors, where you call an LLM in a loop, asking it what action to take next.
+
+### Interesting Papers
+
+- [Unifying Large Language Models and Knowledge Graphs: A Roadmap](https://arxiv.org/pdf/2306.08302.pdf)
+
+# Awesome Neo4j Graph Visualization Tools
+
+A curated list of awesome tools for visualizing Neo4j graph databases.
+
+## Development Tools
+
+- **Neo4j Browser**: Basic tool for running Cypher queries with graph or table format results. [More Info](https://neo4j.com/developer-blog/15-tools-for-visualizing-your-neo4j-graph-database/)
+- **Neovis.js**: JavaScript library integrating Vis.js for customizable browser visualizations. [GitHub](https://github.com/neo4j-contrib/neovis.js)
+- **Popoto.js**: Embeddable JS library based on D3.js, includes a visual Cypher query builder. [Website](https://www.popotojs.com)
+- **KeyLines**: Enterprise JavaScript library for advanced graph visualizations. [Website](https://cambridge-intelligence.com/keylines/)
+- **CytoScape**: Tool and JS library for biological network visualization, adaptable for various networks. [Website](https://cytoscape.org)
+
+## Exploration Tools
+
+- **Neo4j Bloom**: Interactive tool for dynamic graph exploration with text-based search. [More Info](https://neo4j.com/developer-blog/15-tools-for-visualizing-your-neo4j-graph-database/)
+- **yWorks Neo4j Explorer**: Free web-based tool for exploring Neo4j databases, offering schema and explorer views. [Website](https://www.yworks.com/products/yfiles-neo4j-explorer)
+- **Linkurious Enterprise**: On-premises tool for graph exploration and analysis with extensive feature support. [Website](https://linkurio.us)
+
+## Analysis Tools
+
+- **GraphAware Hume**: Comprehensive tool for building knowledge graphs and data science applications. [Website](https://graphaware.com/hume)
+- **Kineviz GraphXR**: Enterprise tool for large-scale graph analysis in 2D and 3D. [Website](https://www.kineviz.com)
+- **Graphistry**: Browser-based tool for visualizing large graphs, leveraging GPU acceleration. [Website](https://www.graphistry.com)
+
+## Reporting Tools
+
+- **Tom Sawyer’s Perspectives**: Java & .NET toolkit for creating graph visualizations and reports. [Website](https://www.tomsawyer.com)
+- **Graphileon**: Dashboard environment for graph data, supporting diverse visualization types. [Website](https://graphileon.com)
+- **Charts**: Neo4j Labs project for generating charts directly from Neo4j databases. [GitHub](https://github.com/neo4j-labs/charts)
+- **NeoDash**: App for quickly building dashboards from Neo4j data. [GitHub](https://github.com/neo4j-labs/neodash)

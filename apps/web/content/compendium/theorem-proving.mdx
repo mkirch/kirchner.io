@@ -1,0 +1,34 @@
+---
+title: Theorem Proving
+description: Using mathematical logic to prove theorems and solve problems using computers.
+icon: 'diagram-project'
+---
+
+There are several different approaches to theorem proving. The most common are:
+
+- [Automated theorem proving](https://en.wikipedia.org/wiki/Automated_theorem_proving)
+
+- [Interactive theorem proving](https://en.wikipedia.org/wiki/Interactive_theorem_proving)  
+- [Proof assistants](https://en.wikipedia.org/wiki/Proof_assistant)
+
+Enumo is a domain-specific language for programmable theory exploration. It uses equality saturation to infer small, expressive rulesets for a domain.
+
+## E-graphs
+
+- [egraphs](https://egraphs.org/)  E-graphs are data structures for working with large equivalence classes of programs; they have recently been employed to build new kinds of program optimizers and synthesizers.
+
+![E-graphs](https://egraphs.org/assets/4-egraphs.svg)
+
+An e-graph compactly represents many equivalent programs. These four e-graphs represent more and more (even infinite!) ways to write (a × 2) / 2.
+
+The [egraphs-good](https://egraphs-good.github.io/) site has a lot of resources and examples of egraphs.
+
+[Docs](https://docs.rs/egg/latest/egg/tutorials/_01_background/index.html)
+
+[e-graph PhD Thesis](https://courses.cs.washington.edu/courses/cse599f/06sp/papers/NelsonThesis.pdf) and [equality saturation](https://arxiv.org/abs/1012.1802) papers
+
+We present [egglog](https://dl.acm.org/doi/10.1145/3591239), a fixpoint reasoning system that unifies Datalog and equality saturation (EqSat). Like Datalog, egglog supports efficient incremental execution, cooperating analyses, and lattice-based reasoning. Like EqSat, egglog supports term rewriting, efficient congruence closure, and extraction of optimized terms.
+
+We identify two recent applications -- a unification-based pointer analysis in Datalog and an EqSat-based floating-point term rewriter -- that have been hampered by features missing from Datalog but found in EqSat or vice-versa. We evaluate our system by reimplementing those projects in egglog. The resulting systems in [egglog](https://github.com/egraphs-good/egglog?tab=readme-ov-file) are faster, simpler, and fix bugs found in the original systems.
+
+[rewrite rule inference using inequality saturation](https://dl.acm.org/doi/10.1145/3485496)

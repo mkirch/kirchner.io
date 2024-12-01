@@ -1,0 +1,27 @@
+---
+title: Good Libraries for Python, Rust, Swift, and More
+description: A list of good libraries for Python, Rust, Swift, and more.
+icon: 'book-atlas'
+---
+
+## Python
+
+### Daily drivers
+
+- `PyTorch` [[GitHub](https://github.com/pytorch/pytorch)][[pip install torch](https://pypi.org/project/torch/)][[Docs](https://pytorch.org/docs/stable/index.html)] Tensor go brrr
+
+- `openai` [[GitHub](https://github.com/openai)][[PyPi]](https://pypi.org/project/openai/)][[Docs](https://openai.com/docs/)] OpenAI Python library for accessing various OpenAI models and tools.
+- `transformers` [[GitHub](https://github.com/huggingface/transformers)][[PyPi](https://pypi.org/project/transformers/)][[Docs](https://huggingface.co/transformers/)] State-of-the-art natural language processing library for PyTorch and TensorFlow.
+- `asyncio` [[Docs](https://docs.python.org/3/library/asyncio.html)] Concurrency using async/await. It's in the standard python lib, but you should use it more.
+- `aiohttp` [[GitHub](https://github.com/aio-libs/aiohttp)][[PyPi](https://pypi.org/project/aiohttp/)][[Docs](https://docs.aiohttp.org/)] Async HTTP client/server framework for use with `asyncio`.
+- `langchain` [[GitHub](https://github.com/username/langchain)][[PyPi](https://pypi.org/project/langchain/)][[Docs](https://langchain.readthedocs.io/en/latest/)] A Python library for language chain analysis and processing.
+
+### Rust-backed Python libraries to try
+
+- `ruff` [[GitHub](https://github.com/username/ruff)][[PyPi](https://pypi.org/project/ruff/)][[Docs](https://ruff.readthedocs.io/en/latest/)] Keep your code clean smh
+- `pola.rs` [[GitHub](https://github.com//)][[Website](https://pola.rs/)][[PyPi](https://pypi.org/project/polars/)] Rust-backed DataFrame library for Python. High performance, multi-threaded query engine written in Rust and designed for effective paralellism. Vectorized and columnar processing enable cache-coherent algorithms and high performance on modern processors. Pandas on another level.
+- `tokenizers` [[GitHub](https://github.com/huggingface/tokenizers)][[PyPi](https://pypi.org/project/tokenizers/)] - Rust-backed python library for efficient tokenization for natural language processing.
+
+## Make your own Rust-backed libraries
+
+- Pyo3 `Maturin` [[GitHub](https://github.com/PyO3/maturin)][[PyPi](https://pypi.org/project/maturin/)] - Build and publish crates with pyo3, rust-cpython and cffi bindings as well as rust binaries as python packages.

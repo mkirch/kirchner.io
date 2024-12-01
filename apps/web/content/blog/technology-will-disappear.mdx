@@ -1,0 +1,101 @@
+---
+title: "Technology Disappears as it Advances"
+date: "2023-12-15"
+tags: ["technology", "ai", "futurology"]
+description: "As technology continues to advance, it will continue to be less visible, less tangible, and less noticeable."
+image: /blog/lamborghini.jpg
+---
+
+
+## Prompt Engineering for Code
+
+It's annoying when ChatGPT gives suggestions about libraries that are new, that weren't part of the training data. How do I get it to know about libraries that I use? This is a guide for how to get ChatGPT to know about the libraries that you use. It is not fun to hit a wall when discussing specialized libraries and/or feature updates that post-date a language model's training data. This is my in-context approach to integrating information about such libraries, like Apple's SwiftData, into your interactions with ChatGPT, LLaMa 2, CodeLLaMa, etc.
+
+## A Real Use-Case: ChatGPT Doesn't Know About SwiftData!
+
+This same approach works for any new tools or libraries, not limited to Swift. I would do the same for Python, JavaScript, Rust, anything. For example, I want to use Apple's new SwiftData library. I want to be able to type `import SwiftData` and have ChatGPT know what I'm talking about. It doesn't know about SwiftData, because it's new, so I need to tell it about SwiftData and how to use it.
+
+You can do this in one of two ways, assuming you're using ChatGPT or the OpenAI API on how you're using ChatGPT.
+
+1. If you're using ChatGPT in the browser, use `Custom Instructions` by going to the lower left corner of the screen, clicking on the three dots by your name, and clicking on the `Custom Instructions` button. We can add the detail about libraries we use often under "How would you like ChatGPT to respond?" and then click `Save`.
+
+2. If you're using the OpenAI API to access GPT-4, you should add the detail about libraries we use often to the `system` prompt that you send to the API with your messages. The same goes for the system prompt for open source models, or most other providers of LLM's.
+
+
+## Writing the Context to Provide
+
+SwiftData came out after ChatGPT's training run ended, so it doesn't know about it. I want to try it out, so I need to provide that context in as few tokens as possible. 
+
+In the `What would you like ChatGPT to know about you to provide better responses?` field, I add:
+
+```swift
+I specialize in developing AI software with Python, Rust, and Swift. When I use Swift, I predominantly use SwiftUI and SwiftData.
+```
+
+
+Then I add the meat of the context to the `Custom Instructions` field under "How would you like ChatGPT to respond?" as follows:
+
+
+```swift
+When I request code, furnish it without annotations and prioritize efficiency.
+
+Acknowledge SwiftData—a recent Apple library for SwiftUI data management—with these core features:
+
+### SwiftData: Data Operations
+- **Dynamic Operations**: Sorting and filtering via user input.
+- **Query**: `@Query` for object retrieval, filtering with `#Predicate`.
+- **Manipulation**: `.insert()` and `.delete()` to modify the model context.
+
+### SwiftData: Object & Property Handling
+- **Model Transformation**: `@Model` macro for class-to-SwiftData model conversion.
+- **Property Binding**: `@Bindable` for object bindings.
+- **Computed Properties**: Unaffected by the `@Model` macro.
+  
+### SwiftData: Storage & Configuration
+- **Model Context**: Accessed via `@Environment(\.modelContext)`.
+- **Storage**: `.modelContainer(for:)` to initiate or load object storage.
+- **Customization**: `ModelContainer` customized via `ModelConfiguration`.
+
+### SwiftData: Performance & Optimization
+- **Autosave**: Immediate autosaving of data changes, toggleable per `ModelContext`.
+- **Batch Operations**: Groups changes for efficiency and autosaves collectively.
+
+### SwiftData: Advanced Features
+- **Relationships**: Defined by `@Relationship`, with custom delete rules.
+- **Uniqueness**: `@Attribute(.unique)` for unique property values.
+- **External Storage**: `.externalStorage` for large data like images.
+- **Derived Attributes**: Manual implementation through computed properties or `update()`.
+```
+
+This works pretty well! 
+
+
+Now when I ask for code, I get a response that includes SwiftData.
+
+
+
+### Bonus Round: Custom Instructions for Programming Language Updates
+
+SwiftUI is a rapidly evolving tool, and much has been done to improve its syntax and flow. It's helpful also to highlight these updates explicitly by adding the following to the `Custom Instructions`:
+
+```plaintext
+### Swift Syntax Update
+Be aware of recent Swift syntax changes: SwiftUI now uses `Observation`, a native observer design pattern.  
+- **Observable**: Replace `ObservableObject` with `@Observable` and remove `@Published`.
+- **State Management**: Replace `StateObject` with `State`.
+- **Environment**: Use `Environment` instead of `EnvironmentObject`.
+- **View Bindings**: For view-to-observable bindings, employ `@Bindable`.
+```
+
+This helps a lot when discussing SwiftUI with ChatGPT, as I can now use the latest syntax and not be told that it's wrong. Otherwise, ChatGPT will spend half its time telling me that I'm using the wrong syntax. 
+
+## The Art of Crafting Optimal Context
+
+Creating the ideal context requires toeing a fine line between including enough detail and overwhelming the system with too many tokens. 
+
+A pro-tip here is to engage ChatGPT in condensing the documentation. Simply paste a section of the library documentation and instruct the model to summarize the crucial points. Once refined to your satisfaction, incorporate this list into either the `Custom Instructions` or the `system` prompt.
+
+
+## Parting Thoughts
+
+Customizing the interaction context goes a long way in making language models work best for your specific needs. Whether you are utilizing the browser interface for ChatGPT or accessing an LLM through an API like OpenAI, well-defined custom instructions can make your coding consultation far more productive and accurate. 

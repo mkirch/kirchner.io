@@ -1,0 +1,71 @@
+---
+title: Maps
+description: A collection of maps and geographical data.
+icon: 'map-location-dot'
+---
+
+## Mapping Tools
+
+- [QGIS](https://qgis.org/) - A free and open-source geographic information system that allows you to create, edit, visualize, analyze, and publish geospatial information on Windows, Mac, Linux, and BSD.
+- [GRASS GIS](https://grass.osgeo.org/) - A free and open-source GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization.
+- [MapServer](https://mapserver.org/) - An open-source development environment for building spatially-enabled internet applications.
+- [PostGIS](https://postgis.net/) - An open-source software program that adds support for geographic objects to the PostgreSQL object-relational database.
+- [GeoServer](https://geoserver.org/) - An open-source server software that allows users to share and edit geospatial data.
+- [Leaflet](https://leafletjs.com/) - An open-source JavaScript library for mobile-friendly interactive maps.
+- [OpenLayers](https://openlayers.org/) - An open-source JavaScript library for displaying map data in web browsers as slippy maps.
+- [Mapnik](https://mapnik.org/) - An open-source toolkit for developing mapping applications.
+- [Felt](https://felt.com/) - Make maps, apps, and dashboards in seconds. A cloud-native GIS platform for everyone in your organization
+
+
+## LIDAR Data
+
+**DEM = Digital Elevation Model**
+- a bare-earth raster grid referenced to a vertical datum
+- DEM serves as the foundational model, providing a comprehensive representation of bare earth elevation. This model includes natural terrain features, excluding any structures or vegetation.
+- DEMs find widespread use in digital cartography and geographic information systems (GIS), serving as the fundamental dataset for terrain representation.
+
+
+
+
+
+**DTM = Digital Terrain Model**
+- DTM is an extension of DEM, enriched with additional features such as breaklines and ridges. Unlike DEM, DTM incorporates finer details, making it particularly valuable for applications requiring a more intricate representation of the terrain.
+- DTMs play a crucial role in flood and drainage modeling, land-use studies, geological applications, and even extend to planetary science.
+- In some countries, a DTM is actually synonymous with a DEM, like the [USGS LiDAR Base Specification](http://pubs.usgs.gov/tm/11b4/pdf/tm11-B4.pdf) (on page 28), DTM actually has two definitions depending on where you live. 
+- This means that a DTM is simply an elevation surface representing the bare earth referenced to a common vertical datum.
+- However in the US, a DTM is a vector data set composed of regularly spaced points and natural features such as ridges and breaklines. A DTM augments a DEM by including linear features of the bare-earth terrain.
+- DTM is not continuous and that it’s not a surface model. 
+- From these regularly-spaced contour lines, you can interpolate a DTM into a DEM. A DTM represents distinctive terrain features much better because of its 3D breaklines and regularly spaced 3D mass points.
+
+**DSM = Digital Surface Model**
+- DSM encapsulates the complete topography, including both natural and anthropogenic features on the Earth's surface. This encompasses buildings, vegetation, and other structures.
+- DSMs are especially preferred in applications such as telecommunications, landscape modeling, city modeling, and visualization, where a holistic representation of the surface is imperative.
+
+[https://www.jouav.com/blog/elevation-models-dem-dsm-dtm.html](https://www.jouav.com/blog/elevation-models-dem-dsm-dtm.html)
+**TIN = Triangular Irregular Network**
+
+**Satellite Interferometry**
+- Synthetic aperture radar such as Shuttle Radar Topography Mission uses two radar images from antennas captured at the same time to create a DEM.
+
+**PHOTOGRAMMETRY**
+- In aerial photography, photogrammetry uses photographs from at least two different vantage points. Similar to how your vision works, it’s able to obtain depth and perspective because of the separate vantage points.
+
+**LiDAR**
+- Using light, LiDAR measures reflected light that bounces off the ground and back to the sensor to obtain the elevation of the Earth’s surface.
+- In LiDAR systems, beams of light pulses are emitted from a LiDAR unit towards the ground.
+- Upon encountering surrounding objects, these pulses bounce back to the sensor. The sensor, through precise time measurements, calculates the distance each pulse traveled.
+- Beyond distance, the sensor gauges the intensity of the returned pulses, providing insights into the surface geometry and material composition of the reflecting surfaces.
+- The outcome is a comprehensive point cloud, capturing elevation values with precision, down to features such as tree canopies and building structures.
+- LIDAR data comes in two types,  **topographic** and **bathymetric** . Topographic LIDAR data uses an infrared laser to map the land, while bathymetric LIDAR uses green light. Bathymetric has the ability to penetrate water, so it is used to measure the seafloor and riverbed elevations. 
+- LiDAR yields more accurate results than photogrammetry data.
+LiDAR penetrates trees and gives accurate “bare earth” elevation dataset, whereas photogrammetry create the best guess by using contours in areas obscured by trees.
+
+**Shaded Relief**
+- Shaded relief shows the shape and elevation of the land by simulating shadows on the terrain. It makes it easier to visualize hills, valleys, and mountains with a three-dimensional and realistic look.
+
+First, the DEM has bare-bones elevation values. Secondly, DSM’s representation of terrain and structures and the DTM’s terrain-focused precision. A Triangular Irregular Network (TIN) is a way to represent a 3D surface.
+
+
+While DEMs consider all persistent ground features, such as vegetation and buildings, DTMs focus on the bare Earth's geodesic surface, excluding above-ground artifacts.
+
+The essential disparity lies in the representation of terrain: DEMs include all objects, while DTMs prioritize the unadorned surface.
