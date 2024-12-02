@@ -1,9 +1,13 @@
 import { env } from '@repo/env';
-import { VercelToolbar } from '@vercel/toolbar/next';
 import type { ThemeProviderProps } from 'next-themes';
+import dynamic from 'next/dynamic';
 import { Toaster } from './components/ui/sonner';
 import { TooltipProvider } from './components/ui/tooltip';
 import { ThemeProvider } from './providers/theme';
+
+const VercelToolbar = dynamic(() =>
+  import('@vercel/toolbar/next').then((mod) => mod.VercelToolbar)
+);
 
 type DesignSystemProviderProperties = ThemeProviderProps;
 
