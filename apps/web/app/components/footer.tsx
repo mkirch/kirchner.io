@@ -24,7 +24,7 @@ export const Footer = () => {
     { icon: FaGithub, href: 'https://github.com/mkirch', label: 'GitHub' },
     {
       icon: FaLinkedin,
-      href: 'https://linkedin.com/in/michael-kirchner',
+      href: 'https://linkedin.com/in/michaelrkirchner',
       label: 'LinkedIn',
     },
     {
