@@ -1,10 +1,15 @@
-import { cn } from '@repo/design-system/lib/utils';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@repo/design-system/components/ui/card';
+import { Separator } from '@repo/design-system/components/ui/separator';
 import type { Article, WithContext } from '@repo/seo/json-ld';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import { allArticles } from 'content-collections';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const title = 'Compendium';
@@ -21,41 +26,41 @@ const CompendiumIndex = () => {
   return (
     <>
       <JsonLd code={jsonLd} />
-      <div className="w-full py-20 lg:py-40">
-        <div className="container mx-auto flex flex-col gap-14">
-          <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-            <h4 className="max-w-xl font-regular text-3xl tracking-tighter md:text-5xl">
-              Welcome to the Compendium
-            </h4>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {allArticles.map((post, index) => (
+      <div className="w-full py-8 lg:py-12 bg-background">
+        <div className="container mx-auto max-w-6xl px-4">
+          <h1 className="font-fraktur text-4xl md:text-6xl text-center mb-4">
+            Compendium
+          </h1>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            A curated collection of resources on web development, technology,
+            and life.
+          </p>
+          <Separator className="mb-8" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {allArticles.map((post) => (
               <Link
                 href={`/compendium/${post._meta.path}`}
-                className={cn(
-                  'flex cursor-pointer flex-col gap-4 hover:opacity-75',
-                  !index && 'md:col-span-2'
-                )}
+                className="no-underline"
                 key={post.title}
               >
-                {post.image && post.imageBlur ? (
-                  <Image
-                    src={post.image ?? ''}
-                    alt={post.title}
-                    width={1336}
-                    height={751}
-                    blurDataURL={post.imageBlur ?? undefined}
-                    placeholder="blur"
-                  />
-                ) : undefined}
-                <div className="flex flex-col gap-2">
-                  <h3 className="max-w-3xl text-4xl tracking-tight">
-                    {post.title ?? ''}
-                  </h3>
-                  <p className="max-w-3xl text-base text-muted-foreground">
-                    {post.description ?? ''}
-                  </p>
-                </div>
+                <Card className="h-full transition-all hover:bg-accent hover:shadow-md">
+                  <CardHeader className="p-4 pb-2">
+                    <CardTitle
+                      className="text-lg font-semibold truncate"
+                      title={post.title}
+                    >
+                      {post.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-4 pt-0">
+                    <p
+                      className="text-sm text-muted-foreground truncate"
+                      title={post.description}
+                    >
+                      {post.description}
+                    </p>
+                  </CardContent>
+                </Card>
               </Link>
             ))}
           </div>
