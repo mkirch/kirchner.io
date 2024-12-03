@@ -108,9 +108,9 @@ export const Footer = () => {
               className="w-full"
             >
               {isOpen ? (
-                <X className="h-5 w-5 mr-2" />
+                <X className="mr-2 h-5 w-5" />
               ) : (
-                <Menu className="h-5 w-5 mr-2" />
+                <Menu className="mr-2 h-5 w-5" />
               )}
               Menu
             </Button>
@@ -139,6 +139,7 @@ export const Footer = () => {
           <p className="mt-2">
             <Link href="/privacy" className="hover:underline">
               Privacy Policy
+              {/* biome-ignore lint/nursery/useConsistentCurlyBraces: <explanation> */}
             </Link>{' '}
             |
             <Link href="/terms" className="ml-2 hover:underline">
