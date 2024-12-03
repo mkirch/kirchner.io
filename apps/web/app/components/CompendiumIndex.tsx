@@ -1,12 +1,7 @@
 'use client';
 
-import { Button } from '@repo/design-system/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@repo/design-system/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Command,
   CommandDialog,
@@ -15,8 +10,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@repo/design-system/components/ui/command';
-import { Separator } from '@repo/design-system/components/ui/separator';
+} from '@/components/ui/command';
+import { Separator } from '@/components/ui/separator';
 import { cn } from '@repo/design-system/lib/utils';
 import type { Article, WithContext } from '@repo/seo/json-ld';
 import { JsonLd } from '@repo/seo/json-ld';

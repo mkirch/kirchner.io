@@ -7,7 +7,8 @@
       "@repo/*": ["../../packages/*"],
       "content-collections": ["./.content-collections/generated"],
       "@web/*": ["../../apps/web/*"],
-      "@images/*": ["../../apps/web/public/images/*"]
+      "@images/*": ["../../apps/web/public/images/*"],
+      "@/components/*": ["../../packages/design-system/components/*"]
     }
   },
   "include": [

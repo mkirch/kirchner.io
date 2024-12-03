@@ -7,5 +7,21 @@
       "packages/design-system/hooks/**",
       "apps/docs/**/*.json"
     ]
+  },
+  "linter": {
+    "rules": {
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "fix": "safe"
+        }
+      },
+      "style": {
+        "useBlockStatements": {
+          "level": "warn",
+          "fix": "safe"
+        }
+      }
+    }
   }
 }

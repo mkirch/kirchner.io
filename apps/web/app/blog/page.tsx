@@ -1,4 +1,4 @@
-import BlogIndex from '@/app/components/blog-index';
+import BlogIndex from '@/app/components/BlogIndex';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
 

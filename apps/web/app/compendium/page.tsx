@@ -1,4 +1,4 @@
-import CompendiumIndex from '@/app/components/compendium-index';
+import CompendiumIndex from '@/app/components/CompendiumIndex';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
 

@@ -25,4 +25,12 @@ if (env.ANALYZE === 'true') {
   nextConfig = withAnalyzer(nextConfig);
 }
 
+nextConfig.images = {
+  remotePatterns: [
+    {
+      hostname: env.NEXT_PUBLIC_BLOB_STORAGE_DOMAIN,
+    },
+  ],
+};
+
 export default withContentCollections(nextConfig);

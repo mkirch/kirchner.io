@@ -1,7 +1,7 @@
 'use client';
 
-import { ModeToggle } from '@repo/design-system/components/mode-toggle';
-import { Button } from '@repo/design-system/components/ui/button';
+import { ModeToggle } from '@/components/mode-toggle';
+import { Button } from '@/components/ui/button';
 import {
   Command,
   CommandDialog,
@@ -10,13 +10,13 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@repo/design-system/components/ui/command';
+} from '@/components/ui/command';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from '@repo/design-system/components/ui/navigation-menu';
+} from '@/components/ui/navigation-menu';
 import { allArticles } from 'content-collections';
 import { allPosts } from 'content-collections';
 import { Menu, Search, X } from 'lucide-react';
@@ -30,6 +30,7 @@ export const Header = () => {
     { title: 'About', href: '/about' },
     { title: 'Blog', href: '/blog' },
     { title: 'Compendium', href: '/compendium' },
+    { title: 'Art', href: '/art' },
   ];
 
   const [isOpen, setOpen] = useState(false);

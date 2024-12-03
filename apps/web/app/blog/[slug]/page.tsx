@@ -1,5 +1,5 @@
-import { Mdx } from '@/components/mdx';
-import { Sidebar } from '@/components/sidebar';
+import { Mdx } from '@/app/components/Mdx';
+import { Sidebar } from '@/app/components/Sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { env } from '@repo/env';
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld';

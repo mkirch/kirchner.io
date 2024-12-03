@@ -1,5 +1,5 @@
-import { CompendiumSidebar } from '@/components/compendium-sidebar';
-import { Mdx } from '@/components/mdx';
+import { CompendiumSidebar } from '@/app/components/CompendiumSidebar';
+import { Mdx } from '@/app/components/Mdx';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { env } from '@repo/env';
 import { type Article, JsonLd, type WithContext } from '@repo/seo/json-ld';
