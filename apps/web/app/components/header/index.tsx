@@ -3,16 +3,26 @@
 import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@repo/design-system/components/ui/command';
+import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from '@repo/design-system/components/ui/navigation-menu';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
+import { allArticles } from 'content-collections';
+import { allPosts } from 'content-collections';
+import { Menu, Search, X } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
-import Logo from './logo.svg';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export const Header = () => {
   const navigationItems = [
@@ -23,6 +33,20 @@ export const Header = () => {
   ];
 
   const [isOpen, setOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setIsSearchOpen((open) => !open);
+      }
+    };
+
+    document.addEventListener('keydown', down);
+    return () => document.removeEventListener('keydown', down);
+  }, []);
 
   return (
     <header className="sticky top-0 left-0 z-40 w-full border-b bg-background">
@@ -31,7 +55,7 @@ export const Header = () => {
           Kirchner.io
         </Link>
 
-        <nav className="hidden md:block">
+        <nav className="hidden items-center gap-4 md:flex">
           <NavigationMenu>
             <NavigationMenuList className="flex gap-4">
               {navigationItems.map((item) => (
@@ -45,6 +69,17 @@ export const Header = () => {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
+          <Button
+            variant="outline"
+            className="w-[200px] justify-start text-left font-normal"
+            onClick={() => setIsSearchOpen(true)}
+          >
+            <Search className="mr-2 h-4 w-4" />
+            Search...
+            <kbd className="pointer-events-none ml-auto inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-medium font-mono text-[10px] text-muted-foreground opacity-100">
+              <span className="text-xs">⌘</span>K
+            </kbd>
+          </Button>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -72,9 +107,68 @@ export const Header = () => {
                 {item.title}
               </Link>
             ))}
+            <Button
+              variant="outline"
+              className="mt-2 w-full justify-start text-left font-normal"
+              onClick={() => {
+                setIsSearchOpen(true);
+                setOpen(false);
+              }}
+            >
+              <Search className="mr-2 h-4 w-4" />
+              Search...
+            </Button>
           </nav>
         </div>
       )}
+
+      <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+        <Command>
+          <CommandInput placeholder="Search across blog and compendium..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Site">
+              {navigationItems.map((item) => (
+                <CommandItem
+                  key={item.title}
+                  onSelect={() => {
+                    router.push(item.href);
+                    setIsSearchOpen(false);
+                  }}
+                >
+                  {item.title}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+            <CommandGroup heading="Blog Posts">
+              {allPosts.map((post) => (
+                <CommandItem
+                  key={post.title}
+                  onSelect={() => {
+                    router.push(`/blog/${post._meta.path}`);
+                    setIsSearchOpen(false);
+                  }}
+                >
+                  {post.title}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+            <CommandGroup heading="Compendium Articles">
+              {allArticles.map((article) => (
+                <CommandItem
+                  key={article.title}
+                  onSelect={() => {
+                    router.push(`/compendium/${article._meta.path}`);
+                    setIsSearchOpen(false);
+                  }}
+                >
+                  {article.title}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </CommandDialog>
     </header>
   );
 };
