@@ -27,8 +27,6 @@ export const Header = () => {
     { title: 'Compendium', href: '/compendium' },
     { title: 'Art', href: '/art' },
   ];
-
-  const [isOpen, setOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const router = useRouter();
 
@@ -47,7 +45,10 @@ export const Header = () => {
   return (
     <header className="sticky top-0 left-0 z-40 w-full border-b bg-background">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
-        <Link href="/" className="font-fraktur text-3xl">
+        <Link
+          href="/"
+          className="font-fraktur sm:text-xl md:text-2xl lg:text-3xl"
+        >
           Kirchner.io
         </Link>
 
@@ -58,9 +59,12 @@ export const Header = () => {
                 key={item.title}
                 variant="ghost"
                 asChild
-                className="h-8 px-2 md:h-10 md:px-4"
+                className="h-8 px-1 md:h-8 md:px-2 lg:px-4"
               >
-                <Link className="font-mono text-sm" href={item.href}>
+                <Link
+                  className="font-medium font-mono text-sm md:font-bold md:text-md"
+                  href={item.href}
+                >
                   {item.title}
                 </Link>
               </Button>
@@ -70,10 +74,12 @@ export const Header = () => {
           <ModeToggle />
           <Button
             variant="outline"
-            className="h-10 w-10 p-0 md:hidden"
+            size="icon"
+            className="shrink-0 text-foreground md:hidden"
             onClick={() => setIsSearchOpen(true)}
           >
-            <Search className="h-5 w-5" />
+            <Search className="dark:-rotate-90 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:scale-0" />
+            <Search className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
           <Button
             variant="outline"

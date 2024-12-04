@@ -86,6 +86,10 @@ export const config: Config = {
         mono: ['var(--font-inconsolata)', ...defaultTheme.fontFamily.mono],
         serif: ['var(--font-newsreader)', ...defaultTheme.fontFamily.serif],
         fraktur: ['var(--font-unifraktur)', ...defaultTheme.fontFamily.serif],
+        newsreader: [
+          'var(--font-newsreader)',
+          ...defaultTheme.fontFamily.serif,
+        ],
       },
       keyframes: {
         'accordion-down': {
