@@ -70,9 +70,13 @@ export const Header = () => {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <ModeToggle />
           <Button
             variant="outline"
-            className="w-[200px] justify-start text-left font-normal"
+            className="hidden w-[200px] justify-start text-left font-normal md:flex"
             onClick={() => setIsSearchOpen(true)}
           >
             <Search className="mr-2 h-4 w-4" />
@@ -81,10 +85,6 @@ export const Header = () => {
               <span className="text-xs">⌘</span>K
             </kbd>
           </Button>
-        </nav>
-
-        <div className="flex items-center gap-4">
-          <ModeToggle />
           <Button
             variant="ghost"
             className="md:hidden"

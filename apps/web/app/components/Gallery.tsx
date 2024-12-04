@@ -177,8 +177,14 @@ export default function Gallery() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex items-center justify-end space-x-2">
+        <div className="container mx-auto flex items-center justify-between py-4">
+          <div className="flex items-baseline space-x-2">
+            <h2 className="mr-5 font-fraktur text-3xl">Art</h2>
+            <p className="overflow-hidden truncate whitespace-nowrap font-mono text-muted-foreground text-sm">
+              Photography by Michael Kirchner
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
             <Select
               value={thumbnailSize}
               onValueChange={(value: 'small' | 'medium' | 'large') =>

@@ -51,15 +51,20 @@ export default function Thumbnails({
   onPhotoClick,
 }: ThumbnailsProps) {
   const getThumbnailSize = useCallback(() => {
+    const parentWidth =
+      document.querySelector('.container')?.clientWidth || window.innerWidth;
+    const padding = 8; // Assuming 16px padding on each side
+    const availableWidth = parentWidth - padding * 2;
+
     switch (thumbnailSize) {
       case 'small':
-        return { width: 150, columns: 6 };
+        return { width: 150, columns: Math.floor(availableWidth / 150) };
       case 'medium':
-        return { width: 250, columns: 4 };
+        return { width: 250, columns: Math.floor(availableWidth / 250) };
       case 'large':
-        return { width: 350, columns: 3 };
+        return { width: 350, columns: Math.floor(availableWidth / 350) };
       default:
-        return { width: 250, columns: 4 };
+        return { width: 250, columns: Math.floor(availableWidth / 250) };
     }
   }, [thumbnailSize]);
 
@@ -195,12 +200,12 @@ export default function Thumbnails({
     const { width: thumbWidth, columns: maxColumns } = getThumbnailSize();
 
     return (
-      <div className="p-4">
+      <div className="p-2">
         <div
-          className="grid auto-rows-fr gap-4"
+          className="grid auto-rows-fr gap-2"
           style={{
             gridTemplateColumns: `repeat(auto-fill, minmax(${thumbWidth}px, 1fr))`,
-            maxWidth: `${maxColumns * (thumbWidth + 16)}px`,
+            maxWidth: `${maxColumns * (thumbWidth + 8)}px`,
             margin: '0 auto',
           }}
         >
