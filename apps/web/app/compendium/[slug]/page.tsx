@@ -1,5 +1,3 @@
-import { CompendiumSidebar } from '@/app/components/CompendiumSidebar';
-import { Mdx } from '@/app/components/Mdx';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { env } from '@repo/env';
 import { type Article, JsonLd, type WithContext } from '@repo/seo/json-ld';
@@ -10,6 +8,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
+import { CompendiumSidebar } from '../../components/CompendiumSidebar';
+import { Mdx } from '../../components/Mdx';
 
 type ArticleProperties = {
   readonly params: Promise<{

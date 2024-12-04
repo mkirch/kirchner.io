@@ -1,11 +1,11 @@
 import '@repo/design-system/styles/globals.css';
-import '@/app/styles/web.css';
-import { Footer } from '@/app/components/Footer';
-import { Header } from '@/app/components/Header';
+import './styles/web.css';
 import { DesignSystemProvider } from '@repo/design-system';
 import { fonts } from '@repo/design-system/lib/fonts';
 import { Analytics } from '@vercel/analytics/react';
 import type { ReactNode } from 'react';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 
 type RootLayoutProperties = {
   readonly children: ReactNode;

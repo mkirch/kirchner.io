@@ -8,7 +8,6 @@
       "content-collections": ["./.content-collections/generated"],
       "@web/*": ["../../apps/web/*"],
       "@images/*": ["../../apps/web/public/images/*"],
-      "@/app/*": ["../../apps/web/app/*"],
       "@/components/*": ["../../packages/design-system/components/*"]
     }
   },

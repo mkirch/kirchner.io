@@ -15,7 +15,7 @@ import Image from 'next/image';
 import { useCallback } from 'react';
 
 // Import the Photo type from the Gallery component
-import type { Photo } from '@/app/components/Gallery';
+import type { Photo } from './Gallery';
 
 const shimmer = (w: number, h: number) => `
   <svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">

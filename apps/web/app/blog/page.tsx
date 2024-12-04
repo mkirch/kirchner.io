@@ -1,6 +1,6 @@
-import BlogIndex from '@/app/components/BlogIndex';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
+import BlogIndex from '../components/BlogIndex';
 
 const title = 'Blog';
 const description = 'Thoughts, ideas, and opinions.';

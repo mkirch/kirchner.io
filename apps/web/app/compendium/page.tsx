@@ -1,6 +1,6 @@
-import CompendiumIndex from '@/app/components/CompendiumIndex';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
+import CompendiumIndex from '../components/CompendiumIndex';
 
 const title = 'Compendium';
 const description = 'Information found relevant to the web, life, and tech.';

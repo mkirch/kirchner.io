@@ -1,5 +1,3 @@
-import { Mdx } from '@/app/components/Mdx';
-import { Sidebar } from '@/app/components/Sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { createMetadata } from '@repo/seo/metadata';
 import { allLegals } from 'content-collections';
@@ -7,6 +5,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
+import { Mdx } from '../../components/Mdx';
+import { Sidebar } from '../../components/Sidebar';
 
 type LegalPageProperties = {
   readonly params: Promise<{

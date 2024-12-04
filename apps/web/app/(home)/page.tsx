@@ -1,4 +1,4 @@
-import { Hero } from '@/app/(home)/components/hero';
+import { Hero } from '../(home)/components/hero';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
 
