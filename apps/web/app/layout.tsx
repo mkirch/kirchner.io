@@ -4,6 +4,7 @@ import { Footer } from '@/app/components/Footer';
 import { Header } from '@/app/components/Header';
 import { DesignSystemProvider } from '@repo/design-system';
 import { fonts } from '@repo/design-system/lib/fonts';
+import { Analytics } from '@vercel/analytics/react';
 import type { ReactNode } from 'react';
 
 type RootLayoutProperties = {
@@ -17,6 +18,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </DesignSystemProvider>
     </body>
   </html>
