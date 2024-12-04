@@ -1,10 +1,25 @@
 'use client';
-
 import { Button } from '@/components/ui/button';
-import {} from '@/components/ui/navigation-menu';
-import { Menu, X } from 'lucide-react';
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from '@/components/ui/navigation-menu';
+import { allArticles } from 'content-collections';
+import { allPosts } from 'content-collections';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export const Footer = () => {
@@ -13,6 +28,7 @@ export const Footer = () => {
     { title: 'About', href: '/about' },
     { title: 'Blog', href: '/blog' },
     { title: 'Compendium', href: '/compendium' },
+    { title: 'Art', href: '/art' },
   ];
 
   const socialLinks = [
@@ -35,23 +51,72 @@ export const Footer = () => {
   ];
 
   const [isOpen, setOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setIsSearchOpen((open) => !open);
+      }
+    };
+
+    document.addEventListener('keydown', down);
+    return () => document.removeEventListener('keydown', down);
+  }, []);
 
   return (
     <footer className="border-t bg-background">
-      <div className="container mx-auto py-12 md:py-16">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
-          <div className="space-y-4">
+      <div className="container mx-auto py-4">
+        <div className="relative flex items-center justify-between">
+          <div className="flex-1 font-mono text-muted-foreground text-xs">
+            <NavigationMenu>
+              <NavigationMenuList className="flex gap-4">
+                {navigationItems.map((item) => (
+                  <NavigationMenuItem key={item.title}>
+                    <NavigationMenuLink asChild>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="px-1"
+                        asChild
+                      >
+                        <Link
+                          href={item.href}
+                          className="font-mono text-muted-foreground text-sm hover:text-primary"
+                        >
+                          {item.title}
+                        </Link>
+                      </Button>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+
+          <div className="flex flex-1 justify-center">
             <Link
               href="/"
               className="font-fraktur text-3xl text-primary transition-colors hover:text-primary/90"
             >
               Kirchner.io
             </Link>
-            <p className="max-w-xs text-muted-foreground text-sm">
-              Exploring technology, mathematics, AI research, business, and life
-              through the eyes of Michael Kirchner.
-            </p>
-            <div className="flex space-x-4">
+          </div>
+
+          <nav className="hidden flex-1 items-center justify-end gap-6 font-mono text-xs md:flex">
+            <Link href="/" className="hover:text-primary">
+              © {new Date().getFullYear()} kirchner.io
+            </Link>
+            <Link href="/privacy" className="hover:text-primary">
+              Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-primary">
+              Terms
+            </Link>
+
+            <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -61,70 +126,21 @@ export const Footer = () => {
                   className="text-muted-foreground transition-colors hover:text-primary"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
-          </div>
-
-          <nav className="hidden md:block">
-            <h3 className="mb-4 font-semibold text-lg">Navigation</h3>
-            <ul className="space-y-2">
-              {navigationItems.map((item) => (
-                <li key={item.title}>
-                  <Link
-                    href={item.href}
-                    className="text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </nav>
-
-          <div className="space-y-4">
-            <h3 className="mb-4 font-semibold text-lg">Newsletter</h3>
-            <p className="text-muted-foreground text-sm">
-              Stay updated with the latest insights and resources.
-            </p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-grow rounded-md border bg-background px-3 py-2 text-sm"
-                aria-label="Email for newsletter"
-              />
-              <Button type="submit" size="sm">
-                Subscribe
-              </Button>
-            </form>
-          </div>
-
-          <div className="md:hidden">
-            <Button
-              variant="outline"
-              onClick={() => setOpen(!isOpen)}
-              className="w-full"
-            >
-              {isOpen ? (
-                <X className="mr-2 h-5 w-5" />
-              ) : (
-                <Menu className="mr-2 h-5 w-5" />
-              )}
-              Menu
-            </Button>
-          </div>
         </div>
 
         {isOpen && (
           <div className="mt-4 md:hidden">
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-1">
               {navigationItems.map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="rounded-md px-2 py-1 text-muted-foreground transition-colors hover:bg-accent hover:text-primary"
+                  className="rounded-md px-2 py-1 text-muted-foreground text-sm transition-colors hover:bg-accent hover:text-primary"
                   onClick={() => setOpen(false)}
                 >
                   {item.title}
@@ -133,21 +149,55 @@ export const Footer = () => {
             </nav>
           </div>
         )}
-
-        <div className="mt-12 border-t pt-8 text-center text-muted-foreground text-sm">
-          <p>© {new Date().getFullYear()} kirchner.io. All rights reserved.</p>
-          <p className="mt-2">
-            <Link href="/privacy" className="hover:underline">
-              Privacy Policy
-              {/* biome-ignore lint/nursery/useConsistentCurlyBraces: <explanation> */}
-            </Link>{' '}
-            |
-            <Link href="/terms" className="ml-2 hover:underline">
-              Terms of Service
-            </Link>
-          </p>
-        </div>
       </div>
+
+      <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+        <Command>
+          <CommandInput placeholder="Search across blog and compendium..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Site">
+              {navigationItems.map((item) => (
+                <CommandItem
+                  key={item.title}
+                  onSelect={() => {
+                    router.push(item.href);
+                    setIsSearchOpen(false);
+                  }}
+                >
+                  {item.title}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+            <CommandGroup heading="Blog Posts">
+              {allPosts.map((post) => (
+                <CommandItem
+                  key={post.title}
+                  onSelect={() => {
+                    router.push(`/blog/${post._meta.path}`);
+                    setIsSearchOpen(false);
+                  }}
+                >
+                  {post.title}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+            <CommandGroup heading="Compendium Articles">
+              {allArticles.map((article) => (
+                <CommandItem
+                  key={article.title}
+                  onSelect={() => {
+                    router.push(`/compendium/${article._meta.path}`);
+                    setIsSearchOpen(false);
+                  }}
+                >
+                  {article.title}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </CommandDialog>
     </footer>
   );
 };
