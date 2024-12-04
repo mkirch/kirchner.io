@@ -101,7 +101,7 @@ const CompendiumArticle = async ({ params }: ArticleProperties) => {
           </div>
           <div className="sticky top-24 hidden shrink-0 md:block">
             <CompendiumSidebar
-              content={page.body}
+              content={page.content}
               readingTime={page.readingTime}
               tags={page.tags ?? undefined}
             />
