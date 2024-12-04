@@ -51,7 +51,7 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 left-0 z-40 w-full border-b bg-background">
-      <div className="container mx-auto flex items-center justify-between py-4">
+      <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link href="/" className="font-fraktur text-3xl">
           Kirchner.io
         </Link>
