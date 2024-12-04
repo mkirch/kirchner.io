@@ -1,56 +1,143 @@
 ---
-title: Rust
-description: Rust is a systems programming language that is fast, memory safe, and thread safe. It is a modern blend of C++ performance and Python user-friendliness.
-icon: 'rust'
+title: 'Rust Programming Language'
+description: 'A comprehensive guide to Rust programming language, its ecosystem, tools, and best practices.'
+icon: 'gears'
 ---
 
-# Rust
+# Rust Programming Language
 
-Rust is exploding in popularity as a kind of modern blend of C++ performance and Python user-friendliness, with some differences that make it a systems programming language that is fast, memory safe, and thread safe.
+Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety. It enables writing reliable and efficient software through its unique ownership system and rich type system.
 
-To learn Rust for Python developers, a good project is to take something written in Python, then rewrite it in Rust for speed, safety, and parallelism, and then can then provide a Python wrapper for it to use it again in Python the way you always did. Many popular Python libraries are now being rewritten in Rust under the hood and then wrapped in Python for use in Python projects, with faster code and no change in user experience.
+## Core Concepts
 
-Rust is great for writing and distributing command line tools, web servers, and desktop applications, and all sorts of things. It's quite portable too, so you can build and run natively without installing anything else on Windows, Linux, and macOS. There are tons of other build targets available like Android, iOS, and WebAssembly. It's pretty easy to go from high-level to low-level and back again.
+### Memory Safety
+- Ownership and borrowing
+- Lifetimes
+- Move semantics
+- Reference rules
+- No null or dangling pointers
 
-Rust is becoming extensively used in the AI and machine learning space, as many popular tools are embracing it.
+### Type System
+- Strong static typing
+- Algebraic data types
+- Traits and generics
+- Pattern matching
+- Zero-cost abstractions
 
-## Books and Documentation for Learning Rust
+### Concurrency
+- Fearless concurrency
+- Thread safety
+- Async/await
+- Message passing
+- Shared state
 
-1. [The Rust Programming Language](https://doc.rust-lang.org/book/) - This is the official book on Rust; a comprehensive resource for reading and understanding Rust, written by the Rust team.
-2. [Rust by Example](https://doc.rust-lang.org/rust-by-example/) - A collection of runnable examples that illustrate various Rust concepts and standard libraries.
-3. [The Rust Programming Language (2nd Edition)](https://nostarch.com/rust-programming-language-2nd-edition) - A physical book that provides a deep dive into Rust, written by members of the Rust team.
-4. [Rust and WebAssembly](https://rustwasm.github.io/docs/book/) - This book provides an overview of using Rust to generate WebAssembly and interact with JavaScript.
+## Development Tools
 
-## Tools Developed in Rust
+### Build System & Package Manager
+- [Cargo](https://doc.rust-lang.org/cargo/) - Official package manager
+- [crates.io](https://crates.io/) - Package registry
+- [rust-toolchain](https://rust-lang.github.io/rustup/) - Toolchain management
+- [Cross](https://github.com/cross-rs/cross) - Cross compilation
 
-### Command Line Tools
+### IDEs & Editors
+- [rust-analyzer](https://rust-analyzer.github.io/) - Language server
+- [VS Code + rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- [IntelliJ Rust](https://www.jetbrains.com/rust/)
+- [Eclipse Corrosion](https://github.com/eclipse/corrosion)
 
-Some of my favorites CLI tools written in Rust:
+### Testing & Documentation
+- [rustdoc](https://doc.rust-lang.org/rustdoc/) - Documentation generator
+- [cargo test](https://doc.rust-lang.org/book/ch11-00-testing.html) - Testing framework
+- [proptest](https://github.com/AltSysrq/proptest) - Property testing
+- [criterion](https://github.com/bheisler/criterion.rs) - Benchmarking
 
-- [ripgrep (rg)](https://github.com/BurntSushi/ripgrep) - Recursively searches your dir for regex matches, replacement for `grep`, `ack`, and `ag`.
-- [sd](https://github.com/chmln/sd) - Simpler `sed`, for **S**earch and **D**isplace.
-- [bat](https://github.com/sharkdp/bat) - A `cat` clone with syntax highlighting and Git integration.
-- [eza](https://github.com/eza-community/eza) - A modern replacement for `ls` (maintained version of `exa` as of 2024).
-- [fd](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to `find`.
-- [tokei](https://github.com/XAMPPRocky/tokei) - Counts your code, quickly.
-- [dust](https://github.com/bootandy/dust) - A more intuitive version of `du` in Rust.
-- [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool.
-- [procs](https://github.com/dalance/procs) - A modern replacement for `ps` written in Rust.
-- [zoxide](https://github.com/ajeetdsouza/zoxide) - A faster `cd` replacement to navigate your filesystem.
-- [mdbook](https://github.com/rust-lang/mdBook) - A utility to create modern online books from Markdown files.
+## Popular Libraries
 
-### Web Servers
+### Web Development
+- [Actix](https://actix.rs/) - Web framework
+- [Rocket](https://rocket.rs/) - Web framework
+- [Tokio](https://tokio.rs/) - Async runtime
+- [Warp](https://github.com/seanmonstar/warp) - Web server framework
 
-- [Actix](https://actix.rs/) - A powerful, pragmatic, and extremely fast web framework for Rust.
+### Systems Programming
+- [nix](https://github.com/nix-rust/nix) - Unix APIs
+- [libc](https://github.com/rust-lang/libc) - FFI bindings
+- [bindgen](https://rust-lang.github.io/rust-bindgen/) - C/C++ bindings
+- [embedded-hal](https://github.com/rust-embedded/embedded-hal) - Embedded systems
 
-### AI and Machine Learning
+### Data Processing
+- [serde](https://serde.rs/) - Serialization framework
+- [diesel](https://diesel.rs/) - ORM and Query Builder
+- [sqlx](https://github.com/launchbadge/sqlx) - SQL toolkit
+- [csv](https://github.com/BurntSushi/rust-csv) - CSV processing
 
-- [Tokenizers](https://github.com/huggingface/tokenizers) - Hugging Face tokenizers library.
-- [Tch.rs]
+### GUI & Graphics
+- [egui](https://github.com/emilk/egui) - Immediate mode GUI
+- [iced](https://github.com/iced-rs/iced) - Cross-platform GUI
+- [wgpu](https://wgpu.rs/) - Graphics API
+- [bevy](https://bevyengine.org/) - Game engine
 
-## Package Registries
+## Learning Resources
 
-- [Crates.io](https://crates.io/) - The Rust community's crate host. You can publish your Rust projects here for others to use.
-- [lib.rs](https://lib.rs/) - An alternative to crates.io, lib.rs also hosts Rust packages but with a different interface.
+### Official Resources
+- [The Rust Book](https://doc.rust-lang.org/book/)
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
+- [Rustlings](https://github.com/rust-lang/rustlings)
+- [Async Book](https://rust-lang.github.io/async-book/)
 
-Remember, the best way to learn Rust is by writing Rust code. Don't be afraid to dive in and start a project, even if you feel overwhelmed. The Rust community is incredibly supportive and is a great resource if you get stuck.
+### Community Resources
+- [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/)
+- [Rust Design Patterns](https://rust-unofficial.github.io/patterns/)
+- [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)
+- [Rust and WebAssembly](https://rustwasm.github.io/docs/book/)
+
+### Practice & Exercises
+- [Exercism Rust Track](https://exercism.io/tracks/rust)
+- [Rust Quiz](https://dtolnay.github.io/rust-quiz/)
+- [Advent of Code in Rust](https://github.com/BurntSushi/advent-of-code)
+- [LeetCode in Rust](https://github.com/aylei/leetcode-rust)
+
+## Best Practices
+
+### Code Organization
+- Project structure
+- Module system
+- Visibility rules
+- Workspace management
+
+### Error Handling
+- Result and Option types
+- Error propagation
+- Custom error types
+- Panic vs. Result
+
+### Performance
+- Zero-cost abstractions
+- SIMD optimizations
+- Memory layout
+- Profiling tools
+
+### Safety & Security
+- Safe vs. unsafe code
+- FFI best practices
+- Auditing dependencies
+- Security considerations
+
+## Community
+
+### Forums & Chat
+- [Users Forum](https://users.rust-lang.org/)
+- [Discord](https://discord.gg/rust-lang)
+- [Reddit](https://www.reddit.com/r/rust/)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/rust)
+
+### Events & Conferences
+- [RustConf](https://rustconf.com/)
+- [RustFest](https://rustfest.global/)
+- [Rust Belt Rust](https://www.rust-belt-rust.com/)
+- Local meetups
+
+### Contributing
+- [Contributing to Rust](https://rust-lang.github.io/rustc-guide/)
+- [RFC process](https://github.com/rust-lang/rfcs)
+- [Working Groups](https://www.rust-lang.org/governance/teams/)

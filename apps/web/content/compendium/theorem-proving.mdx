@@ -1,34 +1,99 @@
 ---
-title: Theorem Proving
-description: Using mathematical logic to prove theorems and solve problems using computers.
+title: 'Theorem Proving'
+description: 'A comprehensive guide to automated and interactive theorem proving, tools, and methodologies.'
 icon: 'diagram-project'
 ---
 
-There are several different approaches to theorem proving. The most common are:
+# Theorem Proving
 
-- [Automated theorem proving](https://en.wikipedia.org/wiki/Automated_theorem_proving)
+Theorem proving is the use of mathematical logic and computational methods to verify mathematical statements and solve complex problems. It combines formal logic, mathematics, and computer science to create rigorous proofs of mathematical theorems.
 
-- [Interactive theorem proving](https://en.wikipedia.org/wiki/Interactive_theorem_proving)  
-- [Proof assistants](https://en.wikipedia.org/wiki/Proof_assistant)
+## Approaches
 
-Enumo is a domain-specific language for programmable theory exploration. It uses equality saturation to infer small, expressive rulesets for a domain.
+### Automated Theorem Proving (ATP)
+- Fully automated systems that find proofs without human intervention
+- Uses resolution, tableaux methods, and term rewriting
+- Suitable for well-defined problem domains
+- Examples: Vampire, E Theorem Prover, Z3
 
-## E-graphs
+### Interactive Theorem Proving (ITP)
+- Human-guided proof development
+- Provides mechanized verification of each step
+- Allows complex mathematical reasoning
+- Examples: Coq, Isabelle/HOL, Lean
 
-- [egraphs](https://egraphs.org/)  E-graphs are data structures for working with large equivalence classes of programs; they have recently been employed to build new kinds of program optimizers and synthesizers.
+### SAT/SMT Solving
+- Boolean satisfiability (SAT) and Satisfiability Modulo Theories (SMT)
+- Efficient automated reasoning for specific domains
+- Used in software verification and hardware design
+- Examples: Z3, CVC4, Yices
 
-![E-graphs](https://egraphs.org/assets/4-egraphs.svg)
+## Tools & Systems
 
-An e-graph compactly represents many equivalent programs. These four e-graphs represent more and more (even infinite!) ways to write (a × 2) / 2.
+### Proof Assistants
+- [Coq](https://coq.inria.fr/) - Formal proof management system
+- [Isabelle](https://isabelle.in.tum.de/) - Generic proof assistant
+- [Lean](https://leanprover.github.io/) - Modern theorem prover and programming language
+- [Agda](https://wiki.portal.chalmers.se/agda/) - Dependently typed functional language
+- [HOL Light](https://www.cl.cam.ac.uk/~jrh13/hol-light/) - Interactive theorem prover
 
-The [egraphs-good](https://egraphs-good.github.io/) site has a lot of resources and examples of egraphs.
+### Automated Provers
+- [Vampire](https://vprover.github.io/) - State-of-the-art ATP system
+- [E Prover](https://wwwlehre.dhbw-stuttgart.de/~sschulz/E/E.html) - Equational theorem prover
+- [Z3](https://github.com/Z3Prover/z3) - Microsoft's SMT solver
+- [CVC4](https://cvc4.github.io/) - SMT solver for multiple theories
 
-[Docs](https://docs.rs/egg/latest/egg/tutorials/_01_background/index.html)
+## Advanced Techniques
 
-[e-graph PhD Thesis](https://courses.cs.washington.edu/courses/cse599f/06sp/papers/NelsonThesis.pdf) and [equality saturation](https://arxiv.org/abs/1012.1802) papers
+### E-graphs and Equality Saturation
+- Efficient representation of equivalent expressions
+- Used in program optimization and synthesis
+- Tools and implementations:
+  - [egg](https://egraphs-good.github.io/) - Fast and flexible e-graph library
+  - [egglog](https://github.com/egraphs-good/egglog) - Combines Datalog with equality saturation
+  - [equality saturation](https://arxiv.org/abs/1012.1802) - Foundational technique
 
-We present [egglog](https://dl.acm.org/doi/10.1145/3591239), a fixpoint reasoning system that unifies Datalog and equality saturation (EqSat). Like Datalog, egglog supports efficient incremental execution, cooperating analyses, and lattice-based reasoning. Like EqSat, egglog supports term rewriting, efficient congruence closure, and extraction of optimized terms.
+### Rewrite Systems
+- Term rewriting for equational reasoning
+- Completion procedures
+- Critical pair computation
+- Termination analysis
 
-We identify two recent applications -- a unification-based pointer analysis in Datalog and an EqSat-based floating-point term rewriter -- that have been hampered by features missing from Datalog but found in EqSat or vice-versa. We evaluate our system by reimplementing those projects in egglog. The resulting systems in [egglog](https://github.com/egraphs-good/egglog?tab=readme-ov-file) are faster, simpler, and fix bugs found in the original systems.
+## Applications
 
-[rewrite rule inference using inequality saturation](https://dl.acm.org/doi/10.1145/3485496)
+### Software Verification
+- Program correctness proofs
+- Security protocol verification
+- Compiler verification
+- Operating system verification
+
+### Mathematics
+- Formal mathematics
+- Complex theorem verification
+- Mathematical knowledge management
+- Computer-checked proofs
+
+### Hardware Design
+- Circuit verification
+- Hardware description languages
+- Microprocessor verification
+- Protocol verification
+
+## Learning Resources
+
+### Tutorials & Courses
+- [Software Foundations](https://softwarefoundations.cis.upenn.edu/) - Introduction to Coq
+- [Certified Programming with Dependent Types](http://adam.chlipala.net/cpdt/) - Advanced Coq
+- [Theorem Proving in Lean](https://leanprover.github.io/theorem_proving_in_lean/) - Lean tutorial
+- [Interactive Theorem Proving Course](https://www.ps.uni-saarland.de/courses/cl-ss15/) - Comprehensive course
+
+### Communities
+- [Coq Discourse](https://coq.discourse.group/)
+- [Lean Zulip](https://leanprover.zulipchat.com/)
+- [Isabelle Users Group](https://groups.google.com/forum/#!forum/isabelle-users)
+- [ATP/ITP Stack Exchange](https://cs.stackexchange.com/questions/tagged/automated-theorem-proving)
+
+### Research Papers
+- [A Survey of Automated Theorem Proving](https://arxiv.org/abs/cs/0604042)
+- [The QED Manifesto](https://www.cs.ru.nl/~freek/qed/qed.html)
+- [The Future of Mathematics](https://www.ams.org/journals/notices/202011/rnoti-p1752.pdf)
