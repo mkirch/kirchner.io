@@ -5,10 +5,10 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   // Added by Vercel
   VERCEL: z.string().optional(),
   NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
-  BLOB_READ_WRITE_TOKEN: z.string().min(1),
 };
 
 const client: Parameters<typeof createEnv>[0]['client'] = {
+  BLOB_READ_WRITE_TOKEN: z.string().min(1),
   NEXT_PUBLIC_APP_URL: z.string().min(1).url(),
   NEXT_PUBLIC_WEB_URL: z.string().min(1).url(),
   NEXT_PUBLIC_API_URL: z.string().min(1).url().optional(),
