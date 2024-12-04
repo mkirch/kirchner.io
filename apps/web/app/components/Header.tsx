@@ -11,15 +11,10 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command';
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from '@/components/ui/navigation-menu';
+import {} from '@/components/ui/navigation-menu';
 import { allArticles } from 'content-collections';
 import { allPosts } from 'content-collections';
-import { Menu, Search, X } from 'lucide-react';
+import { Search } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -56,26 +51,30 @@ export const Header = () => {
           Kirchner.io
         </Link>
 
-        <nav className="hidden items-center gap-4 md:flex">
-          <NavigationMenu>
-            <NavigationMenuList className="flex gap-4">
-              {navigationItems.map((item) => (
-                <NavigationMenuItem key={item.title}>
-                  <NavigationMenuLink asChild>
-                    <Button variant="ghost" asChild>
-                      <Link className="font-mono" href={item.href}>
-                        {item.title}
-                      </Link>
-                    </Button>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </nav>
+        <div className="flex items-center gap-2 md:gap-4">
+          <nav className="flex items-center gap-2 md:gap-4">
+            {navigationItems.map((item) => (
+              <Button
+                key={item.title}
+                variant="ghost"
+                asChild
+                className="h-8 px-2 md:h-10 md:px-4"
+              >
+                <Link className="font-mono text-sm" href={item.href}>
+                  {item.title}
+                </Link>
+              </Button>
+            ))}
+          </nav>
 
-        <div className="flex items-center gap-4">
           <ModeToggle />
+          <Button
+            variant="outline"
+            className="h-10 w-10 p-0 md:hidden"
+            onClick={() => setIsSearchOpen(true)}
+          >
+            <Search className="h-5 w-5" />
+          </Button>
           <Button
             variant="outline"
             className="hidden w-[200px] justify-start text-left font-normal md:flex"
@@ -87,43 +86,8 @@ export const Header = () => {
               <span className="text-xs">⌘</span>K
             </kbd>
           </Button>
-          <Button
-            variant="ghost"
-            className="md:hidden"
-            onClick={() => setOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
         </div>
       </div>
-
-      {isOpen && (
-        <div className="container md:hidden">
-          <nav className="flex flex-col gap-2 py-4">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="rounded-md px-2 py-1 hover:bg-accent"
-                onClick={() => setOpen(false)}
-              >
-                {item.title}
-              </Link>
-            ))}
-            <Button
-              variant="outline"
-              className="mt-2 w-full justify-start text-left font-normal"
-              onClick={() => {
-                setIsSearchOpen(true);
-                setOpen(false);
-              }}
-            >
-              <Search className="mr-2 h-4 w-4" />
-              Search...
-            </Button>
-          </nav>
-        </div>
-      )}
 
       <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
         <Command>
