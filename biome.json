@@ -20,6 +20,9 @@
         "useBlockStatements": {
           "level": "warn",
           "fix": "safe"
+        },
+        "useNamingConvention": {
+          "level": "off"
         }
       }
     }
