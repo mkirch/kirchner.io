@@ -1,25 +1,14 @@
 'use client';
+
 import { Button } from '@/components/ui/button';
-import {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/ui/command';
+import {} from '@/components/ui/command';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu';
-import { allArticles } from 'content-collections';
-import { allPosts } from 'content-collections';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export const Footer = () => {
@@ -49,22 +38,6 @@ export const Footer = () => {
       label: 'Instagram',
     },
   ];
-
-  const [isOpen, setOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setIsSearchOpen((open) => !open);
-      }
-    };
-
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
-  }, []);
 
   return (
     <footer className="border-t bg-background">
@@ -132,72 +105,7 @@ export const Footer = () => {
             </div>
           </nav>
         </div>
-
-        {isOpen && (
-          <div className="mt-4 md:hidden">
-            <nav className="flex flex-col gap-1">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className="rounded-md px-2 py-1 text-muted-foreground text-sm transition-colors hover:bg-accent hover:text-primary"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
       </div>
-
-      <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-        <Command>
-          <CommandInput placeholder="Search across blog and compendium..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Site">
-              {navigationItems.map((item) => (
-                <CommandItem
-                  key={item.title}
-                  onSelect={() => {
-                    router.push(item.href);
-                    setIsSearchOpen(false);
-                  }}
-                >
-                  {item.title}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-            <CommandGroup heading="Blog Posts">
-              {allPosts.map((post) => (
-                <CommandItem
-                  key={post.title}
-                  onSelect={() => {
-                    router.push(`/blog/${post._meta.path}`);
-                    setIsSearchOpen(false);
-                  }}
-                >
-                  {post.title}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-            <CommandGroup heading="Compendium Articles">
-              {allArticles.map((article) => (
-                <CommandItem
-                  key={article.title}
-                  onSelect={() => {
-                    router.push(`/compendium/${article._meta.path}`);
-                    setIsSearchOpen(false);
-                  }}
-                >
-                  {article.title}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </CommandDialog>
     </footer>
   );
 };
