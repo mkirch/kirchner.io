@@ -63,7 +63,9 @@ export const Header = () => {
                 <NavigationMenuItem key={item.title}>
                   <NavigationMenuLink asChild>
                     <Button variant="ghost" asChild>
-                      <Link href={item.href}>{item.title}</Link>
+                      <Link className="font-mono" href={item.href}>
+                        {item.title}
+                      </Link>
                     </Button>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
