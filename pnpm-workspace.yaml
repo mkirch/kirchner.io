@@ -1,9 +1,3 @@
 packages:
-  - "apps/web"
-  - "packages/design-system"
-  - "packages/env"
-  - "packages/next-config"
-  - "packages/seo"
-  - "packages/storage"
-  - "packages/tailwind-config"
-  - "packages/typescript-config"
+  - "apps/*"
+  - "packages/*"

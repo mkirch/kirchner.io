@@ -30,5 +30,6 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_BLOB_STORAGE_DOMAIN,
     NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL:
       process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
   },
 });
