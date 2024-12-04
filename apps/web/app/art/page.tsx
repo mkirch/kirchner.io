@@ -1,12 +1,16 @@
 import Gallery from '@/app/components/Gallery';
+import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Art and Photography ./kirchner.io',
+  description: 'Art and photography by Michael Kirchner',
+};
+
+export default function ArtPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="mb-8 font-bold text-4xl">
-        Michael Kirchner's Photography
-      </h1>
+    <Suspense fallback={<div>Loading gallery...</div>}>
       <Gallery />
-    </main>
+    </Suspense>
   );
 }
