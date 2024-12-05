@@ -20,6 +20,10 @@ const BlogIndex = () => {
 
   const [isGridView, setIsGridView] = useState(true);
 
+  const sortedPosts = [...allPosts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
   return (
     <>
       <JsonLd code={jsonLd} />
@@ -57,7 +61,7 @@ const BlogIndex = () => {
                 : 'flex flex-col gap-4'
             )}
           >
-            {allPosts.map((post) => (
+            {sortedPosts.map((post) => (
               <Link
                 href={`/blog/${post._meta.path}`}
                 className="no-underline"

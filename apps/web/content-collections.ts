@@ -7,6 +7,7 @@ import {
   remarkHeading,
 } from 'fumadocs-core/mdx-plugins';
 import readingTime from 'reading-time';
+import rehypeMermaid from 'rehype-mermaid';
 import { sqip } from 'sqip';
 import type { SqipResult } from 'sqip';
 
@@ -14,6 +15,16 @@ const rehypeCodeOptions: RehypeCodeOptions = {
   themes: {
     light: 'catppuccin-mocha',
     dark: 'catppuccin-mocha',
+  },
+};
+
+const mermaidOptions = {
+  strategy: 'pre-mermaid',
+  mermaidConfig: {
+    theme: 'dark',
+    themeVariables: {
+      fontFamily: 'var(--font-mono)',
+    },
   },
 };
 
@@ -33,7 +44,10 @@ const posts = defineCollection({
     const body = await context.cache(page.content, async () =>
       compileMDX(context, page, {
         remarkPlugins: [remarkGfm, remarkHeading],
-        rehypePlugins: [[rehypeCode, rehypeCodeOptions]],
+        rehypePlugins: [
+          [rehypeCode, rehypeCodeOptions],
+          [rehypeMermaid, mermaidOptions],
+        ],
       })
     );
 
@@ -81,7 +95,10 @@ const articles = defineCollection({
     const body = await context.cache(page.content, async () =>
       compileMDX(context, page, {
         remarkPlugins: [remarkGfm, remarkHeading],
-        rehypePlugins: [[rehypeCode, rehypeCodeOptions]],
+        rehypePlugins: [
+          [rehypeCode, rehypeCodeOptions],
+          [rehypeMermaid, mermaidOptions],
+        ],
       })
     );
 
@@ -130,7 +147,10 @@ const legals = defineCollection({
     const body = await context.cache(page.content, async () =>
       compileMDX(context, page, {
         remarkPlugins: [remarkGfm, remarkHeading],
-        rehypePlugins: [[rehypeCode, rehypeCodeOptions]],
+        rehypePlugins: [
+          [rehypeCode, rehypeCodeOptions],
+          [rehypeMermaid, mermaidOptions],
+        ],
       })
     );
 
