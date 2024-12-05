@@ -69,7 +69,7 @@ const CompendiumArticle = async ({ params }: ArticleProperties) => {
   return (
     <>
       <JsonLd code={jsonLd} />
-      <div className="container py-16">
+      <div className="container mx-auto max-w-full overflow-x-hidden px-4 py-16">
         <Link
           className="mb-4 inline-flex items-center gap-1 text-muted-foreground text-sm focus:underline focus:outline-none"
           href="/compendium"
@@ -84,22 +84,24 @@ const CompendiumArticle = async ({ params }: ArticleProperties) => {
           <Balancer>{page.description}</Balancer>
         </p>
         {page.image && page.imageBlur ? (
-          <Image
-            src={page.image}
-            width={1920}
-            height={1080}
-            alt=""
-            className="my-16 h-full w-full rounded-xl"
-            priority
-            blurDataURL={page.imageBlur ?? undefined}
-            placeholder="blur"
-          />
+          <div className="my-16 w-full max-w-full overflow-hidden rounded-xl">
+            <Image
+              src={page.image}
+              width={1920}
+              height={1080}
+              alt=""
+              className="h-auto w-full object-cover"
+              priority
+              blurDataURL={page.imageBlur ?? undefined}
+              placeholder="blur"
+            />
+          </div>
         ) : undefined}
         <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
-          <div className="sm:flex-1">
+          <div className="w-full overflow-x-auto sm:flex-1">
             <Mdx code={page.body} />
           </div>
-          <div className="sticky top-24 hidden shrink-0 md:block">
+          <div className="sticky top-24 hidden w-full shrink-0 md:block md:w-auto">
             <CompendiumSidebar
               content={page.content}
               readingTime={page.readingTime}
