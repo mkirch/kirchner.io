@@ -72,7 +72,7 @@ const CompendiumArticle = async ({ params }: ArticleProperties) => {
       <div className="container py-16">
         <Link
           className="mb-4 inline-flex items-center gap-1 text-muted-foreground text-sm focus:underline focus:outline-none"
-          href="/compenndium"
+          href="/compendium"
         >
           <ArrowLeftIcon className="h-4 w-4" />
           Back to Compendium
