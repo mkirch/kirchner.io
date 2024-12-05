@@ -10,7 +10,6 @@ import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export const Footer = () => {
   const navigationItems = [
-    { title: 'Home', href: '/' },
     { title: 'About', href: '/about' },
     { title: 'Blog', href: '/blog' },
     { title: 'Compendium', href: '/compendium' },

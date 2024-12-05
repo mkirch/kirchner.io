@@ -21,7 +21,6 @@ import { useEffect, useState } from 'react';
 
 export const Header = () => {
   const navigationItems = [
-    { title: 'Home', href: '/' },
     { title: 'About', href: '/about' },
     { title: 'Blog', href: '/blog' },
     { title: 'Compendium', href: '/compendium' },
@@ -47,24 +46,21 @@ export const Header = () => {
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link
           href="/"
-          className="font-fraktur sm:text-xl md:text-2xl lg:text-3xl"
+          className="font-fraktur text-2xl md:text-3xl lg:text-4xl"
         >
           Kirchner.io
         </Link>
 
-        <div className="flex items-center gap-2 md:gap-4">
-          <nav className="flex items-center gap-2 md:gap-4">
+        <div className="flex items-center sm:gap-1 md:gap-2">
+          <nav className="flex flex-wrap items-center sm:px-1">
             {navigationItems.map((item) => (
               <Button
                 key={item.title}
                 variant="ghost"
                 asChild
-                className="h-8 px-1 md:h-8 md:px-2 lg:px-4"
+                className="min-h-8 px-1 md:px-4"
               >
-                <Link
-                  className="font-medium font-mono text-sm md:font-bold md:text-md"
-                  href={item.href}
-                >
+                <Link className="font-mono text-sm md:text-md" href={item.href}>
                   {item.title}
                 </Link>
               </Button>
