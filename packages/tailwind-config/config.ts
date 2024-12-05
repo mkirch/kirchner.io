@@ -90,6 +90,10 @@ export const config: Config = {
           'var(--font-newsreader)',
           ...defaultTheme.fontFamily.serif,
         ],
+        inconsolata: [
+          'var(--font-inconsolata)',
+          ...defaultTheme.fontFamily.mono,
+        ],
       },
       keyframes: {
         'accordion-down': {

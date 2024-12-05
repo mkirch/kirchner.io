@@ -1,5 +1,6 @@
 'use client';
 
+import { TerminalPrompt } from '@/app/components/TerminalPrompt';
 import { Button } from '@/components/ui/button';
 import { allPosts } from 'content-collections';
 import { MoveRight } from 'lucide-react';
@@ -73,7 +74,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.1, delay: 0.2 }}
           >
-            <h1 className="font-bold font-fraktur text-3xl text-foreground tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="pb-10 font-bold font-fraktur text-3xl text-foreground tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
               Michael Kirchner
             </h1>
             <p className="mx-auto text-muted-foreground text-sm sm:max-w-lg md:max-w-xl md:text-md lg:max-w-2xl lg:text-lg">
@@ -115,6 +116,16 @@ export const Hero = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* TerminalPrompt positioned in the lower left quadrant */}
+      <motion.div
+        className="items-left justify-left -translate-y-[1/2] width-[90%] absolute bottom-[1/2] left-[5%] z-20 flex h-[-10%] sm:left-[10%] md:left-[20%]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0 }}
+      >
+        <TerminalPrompt />
+      </motion.div>
     </div>
   );
 };
