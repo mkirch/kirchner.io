@@ -69,7 +69,7 @@ const CompendiumArticle = async ({ params }: ArticleProperties) => {
   return (
     <>
       <JsonLd code={jsonLd} />
-      <div className="container mx-auto max-w-full overflow-x-hidden px-4 py-16">
+      <div className="container mx-auto max-w-full overflow-x-hidden xl:max-w-7xl">
         <Link
           className="mb-4 inline-flex items-center gap-1 text-muted-foreground text-sm focus:underline focus:outline-none"
           href="/compendium"
@@ -77,14 +77,14 @@ const CompendiumArticle = async ({ params }: ArticleProperties) => {
           <ArrowLeftIcon className="h-4 w-4" />
           Back to Compendium
         </Link>
-        <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
+        <h1 className="font-extrabold text-4xl tracking-tight lg:text-5xl">
           <Balancer>{page.title}</Balancer>
         </h1>
-        <p className="leading-7 [&:not(:first-child)]:mt-6">
+        <p className="mt-16 flex w-fit flex-col items-start leading-7 [&:not(:first-child)]:mt-6">
           <Balancer>{page.description}</Balancer>
         </p>
         {page.image && page.imageBlur ? (
-          <div className="my-16 w-full max-w-full overflow-hidden rounded-xl">
+          <div className="w-full max-w-full overflow-hidden rounded-xl p-16">
             <Image
               src={page.image}
               width={1920}
@@ -97,7 +97,7 @@ const CompendiumArticle = async ({ params }: ArticleProperties) => {
             />
           </div>
         ) : undefined}
-        <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
+        <div className="mt-8 flex flex-col items-start gap-8 sm:flex-row">
           <div className="w-full overflow-x-auto sm:flex-1">
             <Mdx code={page.body} />
           </div>
