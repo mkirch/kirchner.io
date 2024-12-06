@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { ThemeProviderProps } from 'next-themes';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 
@@ -14,6 +13,5 @@ export const ThemeProvider = ({
     {...properties}
   >
     {children}
-    <SpeedInsights />
   </NextThemeProvider>
 );

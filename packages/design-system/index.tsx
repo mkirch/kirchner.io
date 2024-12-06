@@ -1,13 +1,10 @@
-import { env } from '@repo/env';
+import { AnalyticsProvider } from '@repo/analytics';
 import type { ThemeProviderProps } from 'next-themes';
-import dynamic from 'next/dynamic';
+
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from './components/ui/sonner';
 import { TooltipProvider } from './components/ui/tooltip';
 import { ThemeProvider } from './providers/theme';
-
-const VercelToolbar = dynamic(() =>
-  import('@vercel/toolbar/next').then((mod) => mod.VercelToolbar)
-);
 
 type DesignSystemProviderProperties = ThemeProviderProps;
 
@@ -16,8 +13,10 @@ export const DesignSystemProvider = ({
   ...properties
 }: DesignSystemProviderProperties) => (
   <ThemeProvider {...properties}>
-    <TooltipProvider>{children}</TooltipProvider>
-    <Toaster />
-    {env.NODE_ENV === 'development' && <VercelToolbar />}
+    <AnalyticsProvider>
+      <TooltipProvider>{children}</TooltipProvider>
+      <Toaster />
+      <SpeedInsights />
+    </AnalyticsProvider>
   </ThemeProvider>
 );

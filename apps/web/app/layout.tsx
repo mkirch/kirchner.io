@@ -2,7 +2,6 @@ import '@repo/design-system/styles/globals.css';
 import './styles/web.css';
 import { DesignSystemProvider } from '@repo/design-system';
 import { fonts } from '@repo/design-system/lib/fonts';
-import { Analytics } from '@vercel/analytics/react';
 import type { ReactNode } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/footer';
@@ -18,7 +17,6 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
         <Header />
         {children}
         <Footer />
-        <Analytics />
       </DesignSystemProvider>
     </body>
   </html>
