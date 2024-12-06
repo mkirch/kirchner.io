@@ -26,7 +26,7 @@
     "lucide-react": "^0.468.0",
     "mdx-bundler": "^10.0.3",
     "mermaid": "^11.4.1",
-    "motion": "11.13.1",
+    "motion": "12.0.0-alpha.2",
     "next": "15.0.4",
     "playwright": "^1.49.0",
     "react": "19.0.0",
