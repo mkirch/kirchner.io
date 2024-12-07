@@ -1,0 +1,43 @@
+---
+title: 'Python 🐍'
+description: 'Best libraries, tools, practices, and patterns for Python.'
+icon: 'snake'
+---
+
+
+# Python
+
+## Environments 
+
+Keep it simple. New project? Go to the project directory and run these.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -U pip
+python -m pip install -r requirements.txt
+```
+
+Ez. 
+
+
+## Libraries 
+
+In general, use libraries that have frequent updates, are actively and well-maintained, and typically these have a large or growing community. Good libraries of recent have used Rust to implement the core logic in a fast and secure way, and then expose a Python API to the user, so that all the good stuff works, and the annoying stuff is under the hood. `[Tokenizers](https://github.com/huggingface/tokenizers)` is a good example of this pattern.
+
+### My Favorite Python Libraries
+
+These are good for most Python projects. I keep them handy for just about every `requirements.txt` I work start.
+
+- `[rich](https://github.com/willmcgugan/rich)` for pretty printing.
+- `[click](https://github.com/pallets/click)` for building command line interfaces.
+- `[tqdm](https://github.com/tqdm/tqdm)` for progress bars.
+- `[ruff](https://github.com/astral-sh/ruff)` for linting, formatting, import sorting,and type checking. I no longer use `[black](https://github.com/psf/black)` for formatting, or `isort` for import sorting, because it's good enough to just use `ruff` for that.
+- `[pytest](https://github.com/pytest-dev/pytest)` for testing.
+- `[pydantic](https://github.com/pydantic/pydantic)` for data validation.
+- `[polars](https://github.com/pola-rs/polars)` for data manipulation. Like `pandas` on crack.
+- Stop using `requests` and start using `aiohttp`+`asyncio` to get async fast HTTP requests. You may be shocked at how efficient it is.
+  - `[aiohttp](https://github.com/aio-libs/aiohttp)` for HTTP. 
+  - `[asyncio](https://docs.python.org/3/library/asyncio.html)` for async programming.
+
+
