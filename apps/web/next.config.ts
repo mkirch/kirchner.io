@@ -1,8 +1,16 @@
-import { withContentCollections } from '@content-collections/next';
-import { env } from '@repo/env';
+import { env } from '@/env';
+import { withCMS } from '@repo/cms/next-config';
+import { withToolbar } from '@repo/feature-flags/lib/toolbar';
+import { config, withAnalyzer } from '@repo/next-config';
+import { withLogtail, withSentry } from '@repo/observability/next-config';
 import type { NextConfig } from 'next';
 
-const nextConfig: NextConfig = {};
+let nextConfig: NextConfig = withToolbar(withLogtail({ ...config }));
+
+nextConfig.images?.remotePatterns?.push({
+  protocol: 'https',
+  hostname: 'assets.basehub.com',
+});
 
 if (process.env.NODE_ENV === 'production') {
   const redirects: NextConfig['redirects'] = async () => [
@@ -16,12 +24,12 @@ if (process.env.NODE_ENV === 'production') {
   nextConfig.redirects = redirects;
 }
 
-nextConfig.images = {
-  remotePatterns: [
-    {
-      hostname: env.NEXT_PUBLIC_BLOB_STORAGE_DOMAIN,
-    },
-  ],
-};
+if (env.VERCEL) {
+  nextConfig = withSentry(nextConfig);
+}
 
-export default withContentCollections(nextConfig);
+if (env.ANALYZE === 'true') {
+  nextConfig = withAnalyzer(nextConfig);
+}
+
+export default withCMS(nextConfig);

@@ -1,14 +1,14 @@
 // PhotoInfo.tsx
 'use client';
 
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@repo/design-system/components/ui/badge';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
+} from '@repo/design-system/components/ui/dialog';
 import { motion } from 'motion/react';
 import type { Photo } from './Gallery';
 

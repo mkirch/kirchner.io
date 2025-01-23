@@ -13,7 +13,7 @@ const author: Metadata['authors'] = {
   url: 'https://kirchner.io/',
 };
 const publisher = 'Michael Kirchner';
-const twitterHandle = '@kirchnerianum';
+const twitterHandle = '@kirchnerus';
 
 export const createMetadata = ({
   title,

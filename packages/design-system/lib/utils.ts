@@ -1,3 +1,4 @@
+import { parseError } from '@repo/observability/error';
 import { clsx } from 'clsx';
 import type { ClassValue } from 'clsx';
 import { toast } from 'sonner';
@@ -9,6 +10,7 @@ export const capitalize = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1);
 
 export const handleError = (error: unknown): void => {
-  toast.error('oops something went wrong');
+  const message = parseError(error);
+
+  toast.error(message);
 };
-  

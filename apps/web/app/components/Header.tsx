@@ -1,7 +1,7 @@
 'use client';
 
-import { ModeToggle } from '@/components/mode-toggle';
-import { Button } from '@/components/ui/button';
+import { ModeToggle } from '@repo/design-system/components/mode-toggle';
+import { Button } from '@repo/design-system/components/ui/button';
 import {
   Command,
   CommandDialog,
@@ -10,14 +10,23 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/components/ui/command';
-import {} from '@/components/ui/navigation-menu';
-import { allArticles } from 'content-collections';
-import { allPosts } from 'content-collections';
+} from '@repo/design-system/components/ui/command';
 import { Search } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+type Post = {
+  slug: string;
+  title: string;
+  description: string;
+};
+
+type Article = {
+  slug: string;
+  title: string;
+  description: string;
+};
 
 export const Header = () => {
   const navigationItems = [

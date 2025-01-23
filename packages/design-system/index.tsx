@@ -1,7 +1,6 @@
 import { AnalyticsProvider } from '@repo/analytics';
+import { AuthProvider } from '@repo/auth/provider';
 import type { ThemeProviderProps } from 'next-themes';
-
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from './components/ui/sonner';
 import { TooltipProvider } from './components/ui/tooltip';
 import { ThemeProvider } from './providers/theme';
@@ -13,10 +12,11 @@ export const DesignSystemProvider = ({
   ...properties
 }: DesignSystemProviderProperties) => (
   <ThemeProvider {...properties}>
-    <AnalyticsProvider>
-      <TooltipProvider>{children}</TooltipProvider>
-      <Toaster />
-      <SpeedInsights />
-    </AnalyticsProvider>
+    <AuthProvider>
+      <AnalyticsProvider>
+        <TooltipProvider>{children}</TooltipProvider>
+        <Toaster />
+      </AnalyticsProvider>
+    </AuthProvider>
   </ThemeProvider>
 );

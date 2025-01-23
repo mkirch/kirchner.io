@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
+import { Button } from '@repo/design-system/components/ui/button';
+import { Card, CardContent } from '@repo/design-system/components/ui/card';
+import { Separator } from '@repo/design-system/components/ui/separator';
 import { Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';

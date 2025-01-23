@@ -1,7 +1,7 @@
 // Thumbnails.tsx
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@repo/design-system/components/ui/button';
 import {
   Table,
   TableBody,
@@ -9,7 +9,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from '@repo/design-system/components/ui/table';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 import { useCallback } from 'react';

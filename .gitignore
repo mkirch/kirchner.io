@@ -45,3 +45,10 @@ yarn-error.log*
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# BaseHub
+.basehub
+
+# AI Rules
+.cursorrules
+.github/copilot-instructions.md

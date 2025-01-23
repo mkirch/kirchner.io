@@ -1,8 +1,13 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
+import { Button } from '@repo/design-system/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@repo/design-system/components/ui/card';
+import { Separator } from '@repo/design-system/components/ui/separator';
 import { cn } from '@repo/design-system/lib/utils';
 import type { Blog, WithContext } from '@repo/seo/json-ld';
 import { JsonLd } from '@repo/seo/json-ld';

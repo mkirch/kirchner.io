@@ -1,30 +1,17 @@
 {
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "extends": ["ultracite"],
+  "javascript": {
+    "globals": ["Liveblocks"]
+  },
   "files": {
     "ignore": [
       "packages/design-system/components/ui/**",
       "packages/design-system/lib/**",
       "packages/design-system/hooks/**",
-      "apps/docs/**/*.json"
+      "packages/collaboration/config.ts",
+      "apps/docs/**/*.json",
+      "apps/email/.react-email/**"
     ]
-  },
-  "linter": {
-    "rules": {
-      "nursery": {
-        "useSortedClasses": {
-          "level": "warn",
-          "fix": "safe"
-        }
-      },
-      "style": {
-        "useBlockStatements": {
-          "level": "warn",
-          "fix": "safe"
-        },
-        "useNamingConvention": {
-          "level": "off"
-        }
-      }
-    }
   }
 }

@@ -1,20 +1,20 @@
 // Gallery.tsx
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@repo/design-system/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@repo/design-system/components/ui/dropdown-menu';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@repo/design-system/components/ui/select';
 import { FilterIcon, GridIcon, ListIcon, TableIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
