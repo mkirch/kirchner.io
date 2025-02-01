@@ -21,7 +21,7 @@
     "@repo/observability": "workspace:*",
     "@repo/payments": "workspace:*",
     "@repo/testing": "workspace:*",
-    "@sentry/nextjs": "^8.51.0",
+    "@sentry/nextjs": "^8.53.0",
     "@t3-oss/env-nextjs": "^0.11.1",
     "next": "15.1.6",
     "react": "19.0.0",
